@@ -59,8 +59,9 @@ public class Main
 			if(menu != null && menu.draw) menu.draw();
 			if(options != null && options.draw) options.draw(game != null && game.draw);
 			if(game != null && game.draw)
-				game.draw();
+				game.tick();
 
+				//Check for game pause
 				if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && game.paused && pauseCount == 0)
 				{
 					if(options != null) options.draw = false;

@@ -1,8 +1,15 @@
-package game;
+package load;
+
+import game.Game;
 
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Class for random generations.
+ * @author Jake
+ *
+ */
 public class Generator
 {
 	Random random;
@@ -43,6 +50,10 @@ public class Generator
 		 return array[this.random.nextInt(array.length)];
 	}
 	
+	/**
+	 * Generate a random month
+	 * @return a random month
+	 */
 	public String generateRandomMonth()
 	{
 		int monthInt = random.nextInt(11);
@@ -65,15 +76,53 @@ public class Generator
 			case 6:
 				month = "July";
 			case 7:
-				month = "September";
+				month = "August";
 			case 8:
-				month = "October";
+				month = "September";
 			case 9:
-				month = "November";
+				month = "October";
 			case 11:
+				month = "November";
+			case 12:
 				month = "December";
 		}
 		
 		return month;
+	}
+	
+	/**
+	 * Generate a random day in a given month
+	 * @param month the month
+	 * @return a day in the month
+	 */
+	public int generateRandomDayInMonth(String month)
+	{
+		int days = 0;
+		
+		//Set days to 1 less than the correct amount because the random generator includes 0
+		if (month == "January" || month == "March" || month == "May"|| month == "July" || month == "August" || month == "October"|| month == "December") days = 30;
+		else if (month == "February") days = 27;
+		else days = 29;
+		
+		return random.nextInt(days+1); //Add 1 to compensate for 0
+	}
+	
+	/**
+	 * Generates a random hour of the day
+	 * @return a random number between 0-23
+	 */
+	public int generateRandomHour()
+	{
+		return random.nextInt(24);
+	}
+	
+	/**
+	 * Generate a random minute of the hour.
+	 * Can also be used for seconds, due to the fact they are also base 60
+	 * @return a random number between 0-59
+	 */
+	public int generateRandomMinuteOrSecond()
+	{
+		return random.nextInt(59);
 	}
 }

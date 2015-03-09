@@ -35,6 +35,11 @@ public abstract class Button
 	private UnicodeFont font;
 	private String text;
 	
+	/**
+	 * Create a new button
+	 * @param height the text size
+	 * @param text the text to display
+	 */
 	public Button(int height, String text)
 	{
 		createFont(height, true, false); //Create font to draw with

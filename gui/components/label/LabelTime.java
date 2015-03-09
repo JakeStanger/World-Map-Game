@@ -7,33 +7,26 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import java.awt.Font;
 import java.io.InputStream;
 
+import launch.Main;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
 
-/**
- * A simple text label with a transparent background TODO Convert this into either an abstract class or interface
- * @author Jake
- *
- */
-public class Label
+public class LabelTime
 {
 	private UnicodeFont font;
-	private String text;
-	public int size;
 	
-	public Label(int size, String text) 
+	public LabelTime() 
 	{
-		createFont(size, true, false); //Create font to draw with
-		this.text = text;
-		this.size = size;
+		createFont(30, true, false); //Create font to draw with
 	}
 	
-	public void draw(int x, int y, Color colour)
+	public void draw(String month, int day, int hour, int minute, int second)
 	{
-		drawFont(x, y, this.text, colour);
+		drawFont(month, day, hour, minute, second);
 	}
 	
 	/**
@@ -73,15 +66,13 @@ public class Label
 		return font;
 	}
 	
-	private void drawFont(int x, int y, String text, Color colour)
+	private void drawFont(String month, int day, int hour, int minute, int second)
 	{
+		String dayEnd = (day == 1) ? "st" : (day == 2) ? "nd" : (day == 3) ? "rd" : "th";
+		String text = month + ", " + day + dayEnd + " " + hour + ":" + minute + "second";
+		
 		glEnable(GL_TEXTURE_2D);
-			font.drawString(x, y, text, colour);
+			font.drawString(Main.WINDOW_WIDTH - text.length()*30, Main.WINDOW_HEIGHT-30, text, Color.green);
 		glDisable(GL_TEXTURE_2D);
-	}
-	
-	public int getLength()
-	{
-		return text.length();
 	}
 }

@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import launch.Main;
+import load.Generator;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
@@ -32,11 +33,10 @@ public class Game
 	 */
 	public boolean paused = false;
 	private Generator generator = new Generator();
+	private Clock clock;
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	public String[] INTROS = new String[2]; //TODO update this to not have to be manually updated
-	
-	public int month, day, hour, minute, second;
 	
 	//Countries with their cities
 	public static final String[] UNITED_KINGDOM = 
@@ -84,6 +84,8 @@ public class Game
 	
 	public Game()
 	{
+		clock = new Clock(generator);
+		
 		//Setup country list
 		COUNTRIES.put("The United Kingdom", UNITED_KINGDOM); //TODO update countries, cities and intros to be in files
 		COUNTRIES.put("France", FRANCE);
@@ -104,8 +106,10 @@ public class Game
 		lblClickToStart.setText("Click to start.");
 	}
 	
-	public void draw()
+	public void tick()
 	{
+		clock.updateClock();
+		
 		if(!paused)
 		{
 			if(drawIntro == true) drawIntro();
@@ -146,12 +150,14 @@ public class Game
 	 * True if the main game should be drawn
 	 */
 	public boolean drawGame = false;
+	public int minute;
 	/**
 	 * Draw the main game
 	 */
 	private void drawGame()
 	{
 		drawBackground();
+		
 	}
 	
 	/**
