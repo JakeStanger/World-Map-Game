@@ -1,4 +1,4 @@
-package load;
+package util;
 
 import game.Game;
 

@@ -17,7 +17,7 @@ public class ButtonNewGame extends Button
 		
 		//Begin drawing the correct components and stop the unneeded ones
 		Main.menu.draw = false;
-		Main.game.draw = true;
+		Main.game.draw = true; //TODO Draw intro at first, finish setup class
 		
 		if(Main.menu != null) Main.menu = null; //Remove the main menu from memory as you'll never need it on the options screen
 	}

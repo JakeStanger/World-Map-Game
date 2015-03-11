@@ -69,10 +69,14 @@ public class LabelTime
 	private void drawFont(String month, int day, int hour, int minute, int second)
 	{
 		String dayEnd = (day == 1) ? "st" : (day == 2) ? "nd" : (day == 3) ? "rd" : "th";
-		String text = month + ", " + day + dayEnd + " " + hour + ":" + minute + "second";
+		
+		String minuteStr = (minute < 10) ? "0" + Integer.toString(minute) : Integer.toString(minute);
+		String secondStr = (second < 10) ? "0" + Integer.toString(second) : Integer.toString(second);
+		
+		String text = month + ", " + day + dayEnd + " " + hour + ":" + minuteStr + ":" + secondStr;
 		
 		glEnable(GL_TEXTURE_2D);
-			font.drawString(Main.WINDOW_WIDTH - text.length()*30, Main.WINDOW_HEIGHT-30, text, Color.green);
+			font.drawString(Main.WINDOW_WIDTH - 450, 10, text, Color.green);
 		glDisable(GL_TEXTURE_2D);
 	}
 }

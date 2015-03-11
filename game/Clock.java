@@ -1,7 +1,7 @@
 package game;
 
+import util.Generator;
 import gui.components.label.LabelTime;
-import load.Generator;
 
 /**
  * Handles the in-game clock
@@ -10,6 +10,8 @@ public class Clock
 {
 	public String month;
 	public int day, hour, minute, second;
+	private int ticks = 0;
+	public int tickRate = 60;
 
 	private LabelTime lblTime = new LabelTime();
 
@@ -27,32 +29,46 @@ public class Clock
 	 */
 	public void updateClock()
 	{
-		this.second++;
-		
-		if(this.second == 60) 
+		if(this.ticks == 0) //Only update once per second
 		{
-			this.second = 0;
-			this.minute++;
+			this.second++;
+			
+			//Update minute
+			if(this.second == 60) 
+			{
+				this.second = 0;
+				this.minute++;
+			}
+			//Update hour
+			if(this.minute == 60) 
+			{
+				this.minute = 0;
+				this.hour++;
+			}
+			//Update day
+			if(this.hour == 24)
+			{
+				this.hour = 0;
+				this.day++;
+			}
+			//Update month
+			if(this.day == this.getDaysInMonth(this.month)) 
+			{
+				this.day = 0;
+				this.month = this.getNextMonth(this.month);
+			}
+			this.ticks = this.tickRate;
 		}
-		if(this.minute == 60) 
-		{
-			this.minute = 0;
-			this.hour++;
-		}
-		if(this.hour == 24)
-		{
-			this.hour = 0;
-			this.day++;
-		}
-		if(this.day == this.getDaysInMonth(this.month)) 
-		{
-			this.day = 0;
-			this.month = this.getNextMonth(this.month);
-		}
-		
+		//Draw and count down 1 less frame until second update
 		this.lblTime.draw(month, day, hour, minute, second);
+		this.ticks--;
 	}
 	
+	/**
+	 * Get the amount of days in a month
+	 * @param month the month
+	 * @return the amount of days in the month
+	 */
 	private int getDaysInMonth(String month)
 	{
 		int days = 0;
@@ -65,6 +81,11 @@ public class Clock
 		return days; //Add 1 to compensate for 0
 	}
 	
+	/**
+	 * Get the month after the specified month
+	 * @param month a month
+	 * @return the next month
+	 */
 	private String getNextMonth(String month)
 	{
 		String nextMonth = "";

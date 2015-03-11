@@ -21,6 +21,11 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
+/**
+ * The main class
+ * @author Jake
+ *
+ */
 public class Main 
 {
 	//Metadata
@@ -37,7 +42,7 @@ public class Main
 	{
 		//Create the display window
 		Display.setDisplayMode(Display.getDesktopDisplayMode());
-		Display.setFullscreen(false);
+		Display.setFullscreen(true);
 		Display.setTitle("World Map Game");
 		Display.create();
 		
