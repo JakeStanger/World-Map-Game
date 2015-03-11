@@ -16,6 +16,7 @@ import org.newdawn.slick.opengl.Texture;
 
 import util.Generator;
 import util.InstanceManager;
+import util.Main;
 
 
 public class Game 
@@ -30,7 +31,7 @@ public class Game
 	public boolean paused = false;
 	private Generator generator = new Generator();
 	private Clock clock;
-	private InstanceManager instanceManager;
+	private InstanceManager instanceManager = Main.instanceManager;
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
@@ -67,10 +68,9 @@ public class Game
 	 */
 	private Texture texture;
 	
-	public Game(InstanceManager instanceManager)
+	public Game()
 	{
 		this.clock = new Clock(generator);
-		this.instanceManager = instanceManager;
 		
 		//Setup country list
 		COUNTRIES.put("The United Kingdom", UNITED_KINGDOM); //TODO update countries, cities and intros to be in files
@@ -108,7 +108,7 @@ public class Game
 	 */
 	private void drawBackground()
 	{
-		texture = instanceManager.menuInstance.menuTexture;
+		texture = Main.menuTexture;
 		
 		glPushMatrix();
 			texture.bind();

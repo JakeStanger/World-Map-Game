@@ -16,7 +16,6 @@ import util.Main;
 public class Intro
 {
 	private Game game;
-	private Setup setup;
 	
 	/**
 	 * True if the intro screen should be drawn
@@ -38,7 +37,6 @@ public class Intro
 	public Intro(Game game, Setup setup, Generator generator)
 	{
 		this.game = game;
-		this.setup = setup;
 		
 		populateIntroList();
 		

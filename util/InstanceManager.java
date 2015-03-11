@@ -42,7 +42,7 @@ public class InstanceManager
 	 */
 	public void updateInstances()
 	{
-		if(game && gameInstance == null) gameInstance = new Game(this);
+		if(game && gameInstance == null) gameInstance = new Game();
 		if(!game) gameInstance = null;
 		
 		if(intro && introInstance == null) introInstance = new Intro(gameInstance, setup, generator);

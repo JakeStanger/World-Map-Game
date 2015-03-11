@@ -31,7 +31,7 @@ public class GameLoop
 	public GameLoop()
 	
 	{
-		InstanceManager instanceHandler = Main.instanceHandler;
+		InstanceManager instanceHandler = Main.instanceManager;
 		
 		this.menu = instanceHandler.menuInstance;
 		this.game = instanceHandler.gameInstance;

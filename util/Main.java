@@ -11,7 +11,7 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class Main 
 {
-	public static InstanceManager instanceHandler;
+	public static InstanceManager instanceManager;
 	public static GameLoop gameLoop;
 	
 	public static int WINDOW_HEIGHT, WINDOW_WIDTH;
@@ -30,7 +30,7 @@ public class Main
 		Main.WINDOW_HEIGHT = Display.getHeight();
 		Main.WINDOW_WIDTH = Display.getWidth();
 		
-		Main.instanceHandler = new InstanceManager();
+		Main.instanceManager = new InstanceManager();
 		Main.gameLoop = new GameLoop();
 		
 		//Close the program

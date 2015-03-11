@@ -4,10 +4,10 @@ import gui.components.button.Button;
 
 import java.io.IOException;
 
-import launch.WorldMapGame;
-
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
+
+import util.Main;
 
 public class ButtonWhiteMap extends Button 
 {
@@ -21,7 +21,7 @@ public class ButtonWhiteMap extends Button
 	{
 		try 
 		{
-			WorldMapGame.menuTexture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/white/Earth_White_1080.png"));
+			Main.menuTexture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/white/Earth_White_1080.png"));
 		} 
 		catch (IOException e) 
 		{

@@ -7,13 +7,13 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import java.awt.Font;
 import java.io.InputStream;
 
-import launch.WorldMapGame;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
+
+import util.Main;
 
 /**
  * A text label which writes to the screen at a controlled speed
@@ -99,7 +99,7 @@ public class LabelSlowWrite
 					int cursorPosX = x+(i*this.size);
 					
 					//Text wrapping
-					if(cursorPosX >= WorldMapGame.WINDOW_WIDTH - 100 && String.valueOf(text[i]) != " ")
+					if(cursorPosX >= Main.WINDOW_WIDTH - 100 && String.valueOf(text[i]) != " ")
 						{
 							if(count == 0)y += (this.size*1.2);
 							cursorPosX = x+count;

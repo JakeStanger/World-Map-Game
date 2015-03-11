@@ -16,14 +16,14 @@ import static org.lwjgl.opengl.GL11.glVertex2d;
 import java.awt.Font;
 import java.io.InputStream;
 
-import launch.WorldMapGame;
-
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
+
+import util.Main;
 
 /**
  * A clickable menu button
@@ -60,7 +60,7 @@ public abstract class Button
 			
 			//Get mouse coordinates
 			int mouseX = Mouse.getX();
-			int mouseY = WorldMapGame.WINDOW_HEIGHT-Mouse.getY(); //Compensates for mouse being calculated from bottom up
+			int mouseY = Main.WINDOW_HEIGHT-Mouse.getY(); //Compensates for mouse being calculated from bottom up
 			
 			//Check for mouse status and call correct draw method accordingly
 			if((mouseX > x && mouseX < x + width) && (mouseY > y && mouseY < y + height))
