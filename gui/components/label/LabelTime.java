@@ -7,7 +7,7 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import java.awt.Font;
 import java.io.InputStream;
 
-import launch.Main;
+import launch.WorldMapGame;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
@@ -76,7 +76,7 @@ public class LabelTime
 		String text = month + ", " + day + dayEnd + " " + hour + ":" + minuteStr + ":" + secondStr;
 		
 		glEnable(GL_TEXTURE_2D);
-			font.drawString(Main.WINDOW_WIDTH - 450, 10, text, Color.green);
+			font.drawString(WorldMapGame.WINDOW_WIDTH - 450, 10, text, Color.green);
 		glDisable(GL_TEXTURE_2D);
 	}
 }

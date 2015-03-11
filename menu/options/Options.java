@@ -13,10 +13,11 @@ import gui.components.button.options.ButtonMenuReturn;
 import gui.components.button.options.ButtonTerrainMap;
 import gui.components.button.options.ButtonWhiteMap;
 import gui.components.label.Label;
-import launch.Main;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
+
+import util.Main;
 
 
 public class Options 

@@ -8,19 +8,14 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glVertex2f;
-import gui.components.label.LabelSlowWrite;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import launch.Main;
-
-import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
 import util.Generator;
+import util.InstanceManager;
 
 
 public class Game 
@@ -35,6 +30,7 @@ public class Game
 	public boolean paused = false;
 	private Generator generator = new Generator();
 	private Clock clock;
+	private InstanceManager instanceManager;
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
@@ -71,9 +67,10 @@ public class Game
 	 */
 	private Texture texture;
 	
-	public Game()
+	public Game(InstanceManager instanceManager)
 	{
-		clock = new Clock(generator);
+		this.clock = new Clock(generator);
+		this.instanceManager = instanceManager;
 		
 		//Setup country list
 		COUNTRIES.put("The United Kingdom", UNITED_KINGDOM); //TODO update countries, cities and intros to be in files
@@ -87,7 +84,7 @@ public class Game
 		
 		if(!paused)
 		{
-			if(intro.drawIntro == true) intro.drawIntro();
+			if(instanceManager.introInstance.drawIntro == true) instanceManager.introInstance.drawIntro();
 			if(drawGame == true) drawGame();
 		}
 	}
@@ -111,7 +108,7 @@ public class Game
 	 */
 	private void drawBackground()
 	{
-		texture = Main.menuTexture;
+		texture = instanceManager.menuInstance.menuTexture;
 		
 		glPushMatrix();
 			texture.bind();

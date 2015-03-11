@@ -1,15 +1,12 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gui.components.label.LabelSlowWrite;
-import launch.Main;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 
 import util.Generator;
+import util.Main;
 
 /**
  * Handles the introduction upon starting a new game
@@ -60,7 +57,7 @@ public class Intro
 	/**
 	 * Draw the intro screen
 	 */
-	private void drawIntro()
+	public void drawIntro()
 	{
 		lblIntro.draw(10, 10, Color.green);
 		

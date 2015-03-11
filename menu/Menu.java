@@ -17,12 +17,13 @@ import gui.components.label.Label;
 
 import java.io.IOException;
 
-import launch.Main;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
+
+import util.Main;
+import util.Metadata;
 
 
 /**
@@ -53,7 +54,7 @@ public class Menu
 	private Button btnQuit = new ButtonQuit(BUTTON_HEIGHT, "Exit Game");
 	
 	//Create other things
-	private Label lblVersion = new Label(20, Main.VERSION);
+	private Label lblVersion = new Label(20, Metadata.VERSION);
 	
 	private Texture texture; //Background texture
 	

@@ -1,7 +1,7 @@
 package gui.components.button.options;
 
 import gui.components.button.Button;
-import launch.Main;
+import launch.WorldMapGame;
 import menu.Menu;
 
 public class ButtonMenuReturn extends Button 
@@ -14,12 +14,12 @@ public class ButtonMenuReturn extends Button
 	@Override
 	protected void click() 
 	{
-		if(Main.menu == null) Main.menu = new Menu(); //Initialise the menu if it has not been already
+		if(WorldMapGame.menu == null) WorldMapGame.menu = new Menu(); //Initialise the menu if it has not been already
 		
 		//Begin drawing the correct components and stop the unneeded ones
-		Main.options.draw = false;
-		Main.menu.draw = true;
+		Main.WorldMapGame.draw = false;
+		Main.WorldMapGame.draw = true;
 		
-		if(Main.options != null) Main.options = null; //Remove the main menu from memory as you'll never need it on the options screen
+		if(WorldMapGame.options != null) WorldMapGame.options = null; //Remove the main menu from memory as you'll never need it on the options screen
 	}
 }

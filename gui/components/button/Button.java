@@ -16,7 +16,7 @@ import static org.lwjgl.opengl.GL11.glVertex2d;
 import java.awt.Font;
 import java.io.InputStream;
 
-import launch.Main;
+import launch.WorldMapGame;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
@@ -60,7 +60,7 @@ public abstract class Button
 			
 			//Get mouse coordinates
 			int mouseX = Mouse.getX();
-			int mouseY = Main.WINDOW_HEIGHT-Mouse.getY(); //Compensates for mouse being calculated from bottom up
+			int mouseY = WorldMapGame.WINDOW_HEIGHT-Mouse.getY(); //Compensates for mouse being calculated from bottom up
 			
 			//Check for mouse status and call correct draw method accordingly
 			if((mouseX > x && mouseX < x + width) && (mouseY > y && mouseY < y + height))
