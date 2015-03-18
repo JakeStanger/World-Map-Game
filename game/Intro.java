@@ -1,12 +1,12 @@
 package game;
 
+import main.Main;
 import gui.components.label.LabelSlowWrite;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 
 import util.Generator;
-import util.Main;
 
 /**
  * Handles the introduction upon starting a new game

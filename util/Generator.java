@@ -1,7 +1,5 @@
 package util;
 
-import game.Game;
-
 import java.util.List;
 import java.util.Random;
 
@@ -36,7 +34,7 @@ public class Generator
 	 */
 	public String getRandomStringFromArrayWithGivenHashMapKey(String key)
 	{
-		String[] cities = Game.COUNTRIES.get(key);
+		String[] cities = CountryList.COUNTRIES.get(key);
 		return cities[random.nextInt(cities.length)];
 	}
 	

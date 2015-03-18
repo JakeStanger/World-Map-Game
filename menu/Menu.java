@@ -17,12 +17,13 @@ import gui.components.label.Label;
 
 import java.io.IOException;
 
+import main.Main;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-import util.Main;
 import util.Metadata;
 
 

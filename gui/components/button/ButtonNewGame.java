@@ -1,7 +1,7 @@
 package gui.components.button;
 
+import main.Main;
 import game.Game;
-import util.Main;
 
 public class ButtonNewGame extends Button
 {

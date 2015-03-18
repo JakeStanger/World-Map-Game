@@ -1,4 +1,4 @@
-package util;
+package main;
 
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
@@ -19,6 +19,8 @@ import menu.options.Options;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
+
+import util.InstanceManager;
 
 public class GameLoop 
 {
@@ -53,22 +55,8 @@ public class GameLoop
 		if(options != null && options.draw) options.draw(game != null && game.draw);
 		if(game != null && game.draw)
 			game.tick();
-
-			//Check for game pause
-			if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && game.paused && pauseCount == 0)
-			{
-				if(options != null) options.draw = false;
-				options = null;
-				game.paused = false;
-				pauseCount = 10;
-			}
-			if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !game.paused && pauseCount == 0) 
-			{
-				if(options == null) options = new Options();
-				options.draw = true;
-				game.paused = true;
-				pauseCount = 10;
-			}
+		
+			checkForPause();
 			if (pauseCount > 0) pauseCount--;
 		
 		//Frame update
@@ -80,7 +68,7 @@ public class GameLoop
 	 * Initial game setup to make sure everything is drawn with the correct orientation
 	 * Also enables necessary OpenGL functions
 	 */
-	public void setCamera()
+	private void setCamera()
 	{
 		glClear(GL_COLOR_BUFFER_BIT); //Clear screen
 		
@@ -98,5 +86,28 @@ public class GameLoop
 		//Modify modelview matrix
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
+	}
+	
+	/**
+	 * Check if the player has requested to pause the game, and if they have pause it.
+	 * Also handles unpausing the game again
+	 */
+	private void checkForPause()
+	{
+		//Check for game pause
+		if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && game.paused && pauseCount == 0)
+		{
+			if(options != null) options.draw = false;
+			options = null;
+			game.paused = false;
+			pauseCount = 10;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !game.paused && pauseCount == 0) 
+		{
+			if(options == null) options = new Options();
+			options.draw = true;
+			game.paused = true;
+			pauseCount = 10;
+		}
 	}
 }

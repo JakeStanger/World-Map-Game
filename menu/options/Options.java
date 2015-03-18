@@ -8,6 +8,7 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glVertex2f;
+import main.Main;
 import gui.components.button.Button;
 import gui.components.button.options.ButtonMenuReturn;
 import gui.components.button.options.ButtonTerrainMap;
@@ -16,8 +17,6 @@ import gui.components.label.Label;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
-
-import util.Main;
 
 
 public class Options 

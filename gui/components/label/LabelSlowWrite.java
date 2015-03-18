@@ -7,13 +7,13 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import java.awt.Font;
 import java.io.InputStream;
 
+import main.Main;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
-
-import util.Main;
 
 /**
  * A text label which writes to the screen at a controlled speed

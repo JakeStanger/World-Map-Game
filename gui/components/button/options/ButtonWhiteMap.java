@@ -4,10 +4,10 @@ import gui.components.button.Button;
 
 import java.io.IOException;
 
+import main.Main;
+
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
-
-import util.Main;
 
 public class ButtonWhiteMap extends Button 
 {

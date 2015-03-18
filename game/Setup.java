@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.CountryList;
 import util.Generator;
 
 /**
@@ -26,7 +27,7 @@ public class Setup
 	 */
 	private void setStartAndDestination()
 	{
-		List<String>countries = new ArrayList<String>(Game.COUNTRIES.keySet());
+		List<String> countries = new ArrayList<String>(CountryList.COUNTRIES.keySet());
 		
 		//Set start location
 		Game.START_COUNTRY = generator.getRandomFromStringList(countries);

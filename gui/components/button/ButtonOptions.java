@@ -1,7 +1,7 @@
 package gui.components.button;
 
+import main.Main;
 import menu.options.Options;
-import util.Main;
 
 public class ButtonOptions extends Button 
 {

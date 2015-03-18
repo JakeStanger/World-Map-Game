@@ -1,6 +1,5 @@
-package launch;
+package main;
 
-import util.Main;
 
 /**
  * The main class

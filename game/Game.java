@@ -8,15 +8,13 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glVertex2f;
-
-import java.util.HashMap;
+import main.Main;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
 import util.Generator;
 import util.InstanceManager;
-import util.Main;
 
 
 public class Game 
@@ -35,34 +33,6 @@ public class Game
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
-	//Countries with their cities
-	public static final String[] UNITED_KINGDOM = 
-	{
-		"London",
-		"Birmingham",
-		"Dover",
-		"Manchester",
-		"Liverpool",
-		"Cardiff"
-	};
-	public static final String[] FRANCE =
-	{
-		"Paris",
-		"Marseille",
-		"Lyon",
-		"Lille",
-	};
-	public static final String[] USA = 
-	{
-		"New York City",
-		"Washington DC",
-		"San Francisco",
-		"Chicago",
-		"Los Angeles"
-	};
-	
-	public static HashMap<String, String[]> COUNTRIES = new HashMap<String, String[]>();
-	
 	/**
 	 * The map texture
 	 */
@@ -71,11 +41,6 @@ public class Game
 	public Game()
 	{
 		this.clock = new Clock(generator);
-		
-		//Setup country list
-		COUNTRIES.put("The United Kingdom", UNITED_KINGDOM); //TODO update countries, cities and intros to be in files
-		COUNTRIES.put("France", FRANCE);
-		COUNTRIES.put("The USA", USA);
 	}
 	
 	public void tick()
@@ -100,7 +65,6 @@ public class Game
 	private void drawGame()
 	{
 		drawBackground();
-		
 	}
 	
 	/**

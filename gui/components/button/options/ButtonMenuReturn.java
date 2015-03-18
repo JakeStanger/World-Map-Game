@@ -1,8 +1,8 @@
 package gui.components.button.options;
 
 import gui.components.button.Button;
+import main.Main;
 import menu.Menu;
-import util.Main;
 
 public class ButtonMenuReturn extends Button 
 {
