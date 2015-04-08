@@ -32,7 +32,7 @@ public class Intro
 	
 	private LabelSlowWrite lblClickToStart = new LabelSlowWrite(40, 10);
 	
-	public String[] INTROS = new String[2]; //TODO update this to not have to be manually updated
+	public String[] INTROS = new String[2]; //TODO update this to use io
 	
 	public Intro(Game game, Setup setup, Generator generator)
 	{

@@ -2,7 +2,7 @@ package main;
 
 
 /**
- * The main class
+ * The launch class
  * @author Jake
  *
  */

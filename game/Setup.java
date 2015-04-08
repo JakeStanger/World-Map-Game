@@ -1,10 +1,11 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import util.CountryList;
 import util.Generator;
+import util.io.Countries;
 
 /**
  * Load and generate game data.
@@ -15,9 +16,13 @@ import util.Generator;
 public class Setup
 {
 	private Generator generator;
+	private HashMap<String, String[]> countryList;
 	
 	public Setup(Generator generator)
 	{
+		Countries countryIO = new Countries();
+		this.countryList = countryIO.getCountries();
+		
 		this.generator = generator;
 		this.setStartAndDestination();
 	}
@@ -27,7 +32,7 @@ public class Setup
 	 */
 	private void setStartAndDestination()
 	{
-		List<String> countries = new ArrayList<String>(CountryList.COUNTRIES.keySet());
+		List<String> countries = new ArrayList<String>(this.countryList.keySet());
 		
 		//Set start location
 		Game.START_COUNTRY = generator.getRandomFromStringList(countries);

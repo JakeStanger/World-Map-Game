@@ -3,7 +3,6 @@ package main;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
-import util.CountryList;
 import util.InstanceManager;
 
 /**
@@ -17,7 +16,6 @@ public class Main
 {
 	public static InstanceManager instanceManager;
 	public static GameLoop gameLoop;
-	public static CountryList countryList;
 	
 	public static int WINDOW_HEIGHT, WINDOW_WIDTH;
 	
@@ -27,7 +25,7 @@ public class Main
 	{
 		//Create the display window
 		Display.setDisplayMode(Display.getDesktopDisplayMode());
-		Display.setFullscreen(true);
+		Display.setFullscreen(false);
 		Display.setTitle("World Map Game");
 		Display.create();
 		
@@ -38,10 +36,5 @@ public class Main
 		//Create non-window related setup instances
 		Main.instanceManager = new InstanceManager();
 		Main.gameLoop = new GameLoop();
-		
-		
-		//Close the program
-		Display.destroy();
-		System.exit(0);
 	}
 }

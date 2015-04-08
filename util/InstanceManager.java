@@ -34,6 +34,8 @@ public class InstanceManager
 		//Instances constantly in existence
 		generator = new Generator();
 		setup = new Setup(generator);
+		
+		this.menu = true; //Draw the menu on game startup
 	}
 	
 	/**

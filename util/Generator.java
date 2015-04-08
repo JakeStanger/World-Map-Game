@@ -1,20 +1,27 @@
 package util;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import util.io.Countries;
+
 /**
- * Class for random generations.
+ * Class for random generations and returning random values.
  * @author Jake
  *
  */
 public class Generator
 {
-	Random random;
+	private Random random;
+	private HashMap<String, String[]> countryList;
 	
 	public Generator()
 	{
 		this.random = new Random();
+		
+		Countries countryIO = new Countries();
+		this.countryList = countryIO.getCountries();
 	}
 	
 	/**
@@ -34,7 +41,7 @@ public class Generator
 	 */
 	public String getRandomStringFromArrayWithGivenHashMapKey(String key)
 	{
-		String[] cities = CountryList.COUNTRIES.get(key);
+		String[] cities = countryList.get(key);
 		return cities[random.nextInt(cities.length)];
 	}
 	

@@ -30,24 +30,34 @@ public class GameLoop
 	
 	private int pauseCount;
 	
-	public GameLoop()
+	private InstanceManager instanceHandler;
 	
+	public GameLoop()
 	{
-		InstanceManager instanceHandler = Main.instanceManager;
+		this.instanceHandler = Main.instanceManager;
 		
-		this.menu = instanceHandler.menuInstance;
-		this.game = instanceHandler.gameInstance;
-		this.options = instanceHandler.optionsInstance;
-		
+		while(!Display.isCloseRequested()) //Run the game loop
+		{
+			tick();
+		}
+		//Close the program
+		Display.destroy();
+		System.exit(0);
 	}
 	
 	/**
 	 * Main game loop
 	 * @param main an instance of the main class
 	 */
-	public void tick(Main main)
+	public void tick()
 	{
-		this.setCamera();
+		this.setCamera(); //Update OpenGL settings
+		
+		//Update instance states
+		instanceHandler.updateInstances();
+		this.menu = instanceHandler.menuInstance;
+		this.game = instanceHandler.gameInstance;
+		this.options = instanceHandler.optionsInstance;
 		
 		//Check which game component should be drawn
 		//Null check is to stop the game crashing once components are unloaded
