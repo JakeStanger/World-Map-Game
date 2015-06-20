@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  * Handles reading countries list from the disk
  * @author Jake
@@ -13,7 +16,7 @@ import java.util.HashMap;
  */
 public class Countries
 {
-	private String FILE_NAME = "countries.txt"; //TODO come up with a better file extension
+	private String FILE_NAME = "countries.dat";
 	private HashMap<String, String[]> countries;
 	
 	public Countries()
@@ -49,7 +52,7 @@ public class Countries
 		}
 		catch(IOException e)
 		{
-			//TODO display error dialog
+			JOptionPane.showMessageDialog(new JFrame(), "IO Error", "An error has occurred while loading the country list.", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 	}
