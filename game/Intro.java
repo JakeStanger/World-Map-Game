@@ -27,13 +27,15 @@ public class Intro
 	
 	private LabelSlowWrite lblClickToStart = new LabelSlowWrite(40, 10);
 	
-	public String[] INTROS = new String[2]; //TODO update this to use io
+	public static String intro;
 	
 	public Intro(Setup setup, Generator generator)
 	{
-		populateIntroList();
+		intro.replaceAll("$STARTCITY$", Game.START_CITY);
+		intro.replaceAll("$STARTCOUNTRTY$", Game.START_COUNTRY);
+		intro.replaceAll("$ENDCITY$", Game.END_CITY);
+		intro.replaceAll("$ENDCOUNTRY$", Game.END_COUNTRY);
 		
-		String intro = generator.getRandomFromStringArray(INTROS);
 		lblIntro.setText(intro);
 		
 		lblStartCountry.setText("Start country: " + Game.START_COUNTRY);
@@ -72,11 +74,5 @@ public class Intro
 			
 			Main.instanceManager.intro = false;
 		}
-	}
-	
-	private void populateIntroList()
-	{
-		this.INTROS[0] = "Well that was a fun holiday in ".concat(Game.START_CITY).concat(". I can't wait to go back to my house in ".concat(Game.END_CITY).concat(" though."));
-		this.INTROS[1] = "This is no good at all! I can't stand ".concat(Game.START_COUNTRY).concat(" any longer. Time to go back to ".concat(Game.END_COUNTRY).concat("."));
 	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import util.Generator;
 import util.io.Countries;
+import util.io.Intros;
 
 /**
  * Load and generate game data.
@@ -17,14 +18,23 @@ public class Setup
 {
 	private Generator generator;
 	private HashMap<String, String[]> countryList;
+	private List<String> introList;
 	
 	public Setup(Generator generator)
 	{
 		Countries countryIO = new Countries();
 		this.countryList = countryIO.getCountries();
 		
+		Intros introIO = new Intros();
+		this.introList = introIO.getIntros();
+		
 		this.generator = generator;
+		
 		this.setStartAndDestination();
+		
+		String[] introArr = new String[this.introList.size()];
+		introArr = this.introList.toArray(introArr);
+		Intro.intro = generator.getRandomFromStringArray(introArr);
 	}
 	
 	/**

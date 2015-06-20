@@ -9,6 +9,7 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,7 +22,7 @@ import javax.swing.JOptionPane;
 public class Intros
 {
 	private String FILE_NAME = "intros.dat";
-	private ArrayList<String> intros;
+	private List<String> intros;
 	
 	public Intros()
 	{
@@ -79,7 +80,7 @@ public class Intros
 		}
 	}
 	
-	public ArrayList<String> getIntros()
+	public List<String> getIntros()
 	{
 		return intros;
 	}
