@@ -61,7 +61,6 @@ public class Intro
 			lblEndCity.draw(10, 280, Color.green);
 		}
 		
-		//TODO update lblEndCity to new isReady
 		if(lblEndCity.hasFinished) lblClickToStart.draw((Main.WINDOW_WIDTH/2)-(lblClickToStart.getText().length()*lblClickToStart.size)/2, Main.WINDOW_HEIGHT - 100, Color.green);
 		if(lblClickToStart.hasFinished && Mouse.isButtonDown(0)) //When the player has seen the intro
 		{

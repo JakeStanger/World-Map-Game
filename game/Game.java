@@ -16,7 +16,7 @@ import org.newdawn.slick.opengl.Texture;
 import util.Generator;
 
 
-public class Game //TODO Fix game not loading after intro
+public class Game
 {	
 	/**
 	 * True if any game content should be drawn
