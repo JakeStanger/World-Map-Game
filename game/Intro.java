@@ -31,13 +31,14 @@ public class Intro
 	
 	public Intro(Setup setup, Generator generator)
 	{
-		intro.replaceAll("$STARTCITY$", Game.START_CITY);
-		intro.replaceAll("$STARTCOUNTRTY$", Game.START_COUNTRY);
-		intro.replaceAll("$ENDCITY$", Game.END_CITY);
-		intro.replaceAll("$ENDCOUNTRY$", Game.END_COUNTRY);
+		intro = intro.replace("$STARTCITY$", Game.START_CITY);
+		intro = intro.replace("$STARTCOUNTRTY$", Game.START_COUNTRY);
+		intro = intro.replace("$ENDCITY$", Game.END_CITY);
+		intro = intro.replace("$ENDCOUNTRY$", Game.END_COUNTRY);
 		
 		lblIntro.setText(intro);
-		
+		System.out.println(lblIntro.getText());
+		 
 		lblStartCountry.setText("Start country: " + Game.START_COUNTRY);
 		lblStartCity.setText("Start city: " + Game.START_CITY);
 		
@@ -64,7 +65,7 @@ public class Intro
 		}
 		
 		if(lblEndCity.hasFinished) lblClickToStart.draw((Main.WINDOW_WIDTH/2)-(lblClickToStart.getText().length()*lblClickToStart.size)/2, Main.WINDOW_HEIGHT - 100, Color.green);
-		if(lblClickToStart.hasFinished && Mouse.isButtonDown(0)) //When the player has seen the intro
+		if(lblClickToStart.hasFinished && Mouse.isButtonDown(0)) //When the player has seen the intro and clicked
 		{
 			this.draw = false;
 			
