@@ -1,6 +1,5 @@
 package main;
 
-
 /**
  * The launch class
  * @author Jake
