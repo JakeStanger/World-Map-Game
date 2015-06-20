@@ -2,8 +2,12 @@ package util.io;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
@@ -49,10 +53,32 @@ public class Countries
 				}
 				br.close();
 			}
+			else downloadCountries();
 		}
 		catch(IOException e)
 		{
-			JOptionPane.showMessageDialog(new JFrame(), "IO Error", "An error has occurred while loading the country list.", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(new JFrame(), "An error has occurred while loading the country list.", "IO Error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+	
+	private void downloadCountries()
+	{
+		try
+		{
+			System.out.println("Downloading country list...");
+			
+			System.setProperty("http.agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36"); 
+			
+			URL website = new URL("http://roboguy99.co.uk/downloads/worldMap/countries.dat");
+			ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+			FileOutputStream fos = new FileOutputStream("countries.dat");
+			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+			loadCountries();
+		}
+		catch(IOException e)
+		{
+			JOptionPane.showMessageDialog(new JFrame(), "An error has occurred while downloading the country list.", "IO Error", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 	}
