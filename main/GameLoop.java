@@ -66,8 +66,9 @@ public class GameLoop
 		//Check which game component should be drawn
 		if((menu != null && menu.draw) || (options != null && options.draw)) //Draw background if menu or options loaded
 		{
-			Main.instanceManager.backgroundInstance = new Background(); //Initialise the menu if it has not been already
+			this.background = new Background(); //Initialise the menu if it has not been already
 			Main.instanceManager.background = true; //Inform instance manager to update
+			this.background.draw();
 		}
 		else
 		{
