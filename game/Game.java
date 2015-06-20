@@ -43,8 +43,6 @@ public class Game
 	
 	public void tick()
 	{	
-		clock.updateClock();
-		
 		if(!paused) //Only tick game if not paused
 		{
 			drawGame();
@@ -58,6 +56,7 @@ public class Game
 	private void drawGame()
 	{
 		drawBackground();
+		clock.updateClock();
 	}
 	
 	/**
