@@ -9,7 +9,9 @@ import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 import main.Main;
+import menu.options.Options;
 
+import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
@@ -25,7 +27,9 @@ public class Game
 	/**
 	 * True if the game is paused
 	 */
-	public boolean paused = false;
+	private boolean paused = false;
+	private int pauseCount;
+	
 	private Generator generator = new Generator();
 	private Clock clock;
 	
@@ -43,10 +47,12 @@ public class Game
 	
 	public void tick()
 	{	
+		checkForPause();
 		if(!paused) //Only tick game if not paused
 		{
 			drawGame();
 		}
+		if (pauseCount > 0) pauseCount--;
 	}
 	
 	public int minute;
@@ -81,5 +87,37 @@ public class Game
 				glVertex2f(0,texture.getTextureHeight());	
 	        glEnd();
         glPopMatrix();
+	}
+	
+
+	
+	/**
+	 * Check if the player has requested to pause the game, and if they have pause it.
+	 * Also handles unpausing the game again
+	 */
+	private void checkForPause()
+	{
+		Options options = Main.instanceManager.optionsInstance;
+		
+		//Check for game pause
+		if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && paused && pauseCount == 0)
+		{
+			if(options != null) options.draw = false;
+			Main.instanceManager.options = false;
+			
+			paused = false;
+			pauseCount = 10; //Stop pause spamming
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !paused && pauseCount == 0) 
+		{
+			System.out.println("Game paused");
+			
+			if(options == null) Main.instanceManager.options = true;
+			Main.instanceManager.forceUpdate();
+			if(options != null) options.draw = true;
+			
+			paused = true;
+			pauseCount = 10; //Stop pause spamming
+		}
 	}
 }

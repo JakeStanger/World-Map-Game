@@ -19,7 +19,6 @@ import menu.Background;
 import menu.Menu;
 import menu.options.Options;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
 import util.InstanceManager;
@@ -33,8 +32,6 @@ public class GameLoop
 	private Intro intro;
 	
 	private Background background;
-	
-	private int pauseCount;
 	
 	private InstanceManager instanceManager;
 	
@@ -99,9 +96,7 @@ public class GameLoop
 		if(game != null && game.draw)
 		{
 			game.tick();
-		
-			checkForPause();
-			if (pauseCount > 0) pauseCount--;
+			if(background != null && background.draw) background.draw();
 		}
 		
 		//Frame update
@@ -131,28 +126,5 @@ public class GameLoop
 		//Modify modelview matrix
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
-	}
-	
-	/**
-	 * Check if the player has requested to pause the game, and if they have pause it.
-	 * Also handles unpausing the game again
-	 */
-	private void checkForPause()
-	{
-		//Check for game pause
-		if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && game.paused && pauseCount == 0)
-		{
-			if(options != null) options.draw = false;
-			options = null;
-			game.paused = false;
-			pauseCount = 10;
-		}
-		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !game.paused && pauseCount == 0) 
-		{
-			if(options == null) options = new Options();
-			options.draw = true;
-			game.paused = true;
-			pauseCount = 10;
-		}
 	}
 }
