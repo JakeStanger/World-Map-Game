@@ -14,7 +14,7 @@ import menu.options.Options;
  * @author Jake
  *
  */
-public class InstanceManager
+public class InstanceManager //TODO Redesign to have separate method for each class
 {
 	public Game gameInstance;
 	public boolean game;
@@ -52,14 +52,14 @@ public class InstanceManager
 	 */
 	public void updateInstances()
 	{
+		if(newGame && newGameInstance == null) newGameInstance = new NewGame();
+		if(!newGame) newGameInstance = null;
+		
 		if(game && gameInstance == null) gameInstance = new Game();
 		if(!game) gameInstance = null;
 		
 		if(intro && introInstance == null) introInstance = new Intro(setupInstance, generatorInstance);
 		if (!intro) introInstance = null;
-		
-		if(newGame && newGameInstance == null) newGameInstance = new NewGame();
-		if(!newGame) newGameInstance = null;
 		
 		if(menu && menuInstance == null) menuInstance = new Menu();
 		if(!menu) menuInstance = null;
@@ -69,5 +69,13 @@ public class InstanceManager
 		
 		if(background && backgroundInstance == null) backgroundInstance = new Background();
 		if(!background) backgroundInstance = null;
+	}
+
+	/**
+	 * Force update the instances
+	 */
+	public void forceUpdate()
+	{
+		updateInstances();
 	}
 }

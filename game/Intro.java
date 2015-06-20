@@ -1,7 +1,7 @@
 package game;
 
-import main.Main;
 import gui.components.label.LabelSlowWrite;
+import main.Main;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
@@ -66,6 +66,12 @@ public class Intro
 		if(lblClickToStart.hasFinished && Mouse.isButtonDown(0)) //When the player has seen the intro
 		{
 			this.draw = false;
+			
+			Main.instanceManager.gameInstance = new Game();
+			Main.instanceManager.game = true;
+			Main.instanceManager.gameInstance.draw = true;
+			
+			Main.instanceManager.intro = false;
 		}
 	}
 	

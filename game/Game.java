@@ -16,7 +16,7 @@ import org.newdawn.slick.opengl.Texture;
 import util.Generator;
 
 
-public class Game 
+public class Game //TODO Fix game not loading after intro
 {	
 	/**
 	 * True if any game content should be drawn
@@ -42,7 +42,7 @@ public class Game
 	}
 	
 	public void tick()
-	{
+	{	
 		clock.updateClock();
 		
 		if(!paused) //Only tick game if not paused

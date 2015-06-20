@@ -36,11 +36,11 @@ public class GameLoop
 	
 	private int pauseCount;
 	
-	private InstanceManager instanceHandler;
+	private InstanceManager instanceManager;
 	
 	public GameLoop()
 	{
-		this.instanceHandler = Main.instanceManager;
+		this.instanceManager = Main.instanceManager;
 		
 		while(!Display.isCloseRequested()) //Run the game loop
 		{
@@ -60,25 +60,25 @@ public class GameLoop
 		this.setCamera(); //Update OpenGL settings
 		
 		//Update instance states
-		instanceHandler.updateInstances();
-		this.menu = instanceHandler.menuInstance;
-		this.options = instanceHandler.optionsInstance;
-		this.background = instanceHandler.backgroundInstance;
+		instanceManager.updateInstances();
+		this.menu = instanceManager.menuInstance;
+		this.options = instanceManager.optionsInstance;
+		this.background = instanceManager.backgroundInstance;
 	
-		this.game = instanceHandler.gameInstance;
-		this.intro = instanceHandler.introInstance;
+		this.game = instanceManager.gameInstance;
+		this.intro = instanceManager.introInstance;
 		
 		//Check which game component should be drawn
 		if((menu != null && menu.draw) || (options != null && options.draw)) //Draw background if menu or options loaded
 		{
 			this.background = new Background(); //Initialise the menu if it has not been already
-			Main.instanceManager.background = true; //Inform instance manager to update
+			instanceManager.background = true; //Inform instance manager to update
 			this.background.draw();
 		}
 		else
 		{
-			Main.instanceManager.backgroundInstance = null; //Initialise the menu if it has not been already
-			Main.instanceManager.background = false; //Inform instance manager to update
+			instanceManager.backgroundInstance = null; //Initialise the menu if it has not been already
+			instanceManager.background = false; //Inform instance manager to update
 		}
 		
 		//Null check is to stop the game crashing once components are unloaded
@@ -96,7 +96,7 @@ public class GameLoop
 		
 		if(intro != null && intro.draw) intro.draw();
 		
-		if(game != null && intro.draw)
+		if(game != null && game.draw)
 		{
 			game.tick();
 		
