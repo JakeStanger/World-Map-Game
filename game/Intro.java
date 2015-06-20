@@ -15,12 +15,7 @@ import util.Generator;
  */
 public class Intro
 {
-	private Game game;
-	
-	/**
-	 * True if the intro screen should be drawn
-	 */
-	public boolean drawIntro = true;
+	public boolean draw = false;
 	
 	private LabelSlowWrite lblIntro = new LabelSlowWrite(30, 5);
 	
@@ -34,10 +29,8 @@ public class Intro
 	
 	public String[] INTROS = new String[2]; //TODO update this to use io
 	
-	public Intro(Game game, Setup setup, Generator generator)
+	public Intro(Setup setup, Generator generator)
 	{
-		this.game = game;
-		
 		populateIntroList();
 		
 		String intro = generator.getRandomFromStringArray(INTROS);
@@ -55,7 +48,7 @@ public class Intro
 	/**
 	 * Draw the intro screen
 	 */
-	public void drawIntro()
+	public void draw()
 	{
 		lblIntro.draw(10, 10, Color.green);
 		
@@ -72,8 +65,7 @@ public class Intro
 		if(lblEndCity.hasFinished) lblClickToStart.draw((Main.WINDOW_WIDTH/2)-(lblClickToStart.getText().length()*lblClickToStart.size)/2, Main.WINDOW_HEIGHT - 100, Color.green);
 		if(lblClickToStart.hasFinished && Mouse.isButtonDown(0)) //When the player has seen the intro
 		{
-			drawIntro = false;
-			game.drawGame = true;
+			this.draw = false;
 		}
 	}
 	

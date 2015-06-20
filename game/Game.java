@@ -14,13 +14,12 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
 import util.Generator;
-import util.InstanceManager;
 
 
 public class Game 
 {	
 	/**
-	 * True if the game should be drawn
+	 * True if any game content should be drawn
 	 */
 	public boolean draw = false;
 	/**
@@ -29,7 +28,6 @@ public class Game
 	public boolean paused = false;
 	private Generator generator = new Generator();
 	private Clock clock;
-	private InstanceManager instanceManager = Main.instanceManager;
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
@@ -41,24 +39,18 @@ public class Game
 	public Game()
 	{
 		this.clock = new Clock(generator);
-		this.instanceManager.intro = true;
 	}
 	
 	public void tick()
 	{
 		clock.updateClock();
 		
-		if(!paused)
+		if(!paused) //Only tick game if not paused
 		{
-			if(instanceManager.introInstance.drawIntro == true) instanceManager.introInstance.drawIntro();
-			if(drawGame == true) drawGame();
+			drawGame();
 		}
 	}
 	
-	/**
-	 * True if the main game should be drawn
-	 */
-	public boolean drawGame = false;
 	public int minute;
 	/**
 	 * Draw the main game

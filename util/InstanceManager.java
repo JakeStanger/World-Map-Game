@@ -2,6 +2,7 @@ package util;
 
 import game.Game;
 import game.Intro;
+import game.NewGame;
 import game.Setup;
 import menu.Background;
 import menu.Menu;
@@ -21,14 +22,17 @@ public class InstanceManager
 	public Intro introInstance;
 	public boolean intro;
 	
+	public NewGame newGameInstance;
+	public boolean newGame;	
+	
 	public Menu menuInstance;
 	public boolean menu;
 	
 	public Options optionsInstance;
 	public boolean options;
 	
-	public Generator generator;
-	public Setup setup;
+	public Generator generatorInstance;
+	public Setup setupInstance;
 	
 	public Background backgroundInstance;
 	public boolean background;
@@ -36,8 +40,8 @@ public class InstanceManager
 	public InstanceManager()
 	{
 		//Instances constantly in existence
-		generator = new Generator();
-		setup = new Setup(generator);
+		generatorInstance = new Generator();
+		setupInstance = new Setup(generatorInstance);
 		
 		this.menu = true; //Draw the menu on game startup
 	}
@@ -51,8 +55,11 @@ public class InstanceManager
 		if(game && gameInstance == null) gameInstance = new Game();
 		if(!game) gameInstance = null;
 		
-		if(intro && introInstance == null) introInstance = new Intro(gameInstance, setup, generator);
+		if(intro && introInstance == null) introInstance = new Intro(setupInstance, generatorInstance);
 		if (!intro) introInstance = null;
+		
+		if(newGame && newGameInstance == null) newGameInstance = new NewGame();
+		if(!newGame) newGameInstance = null;
 		
 		if(menu && menuInstance == null) menuInstance = new Menu();
 		if(!menu) menuInstance = null;

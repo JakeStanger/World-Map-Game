@@ -1,7 +1,7 @@
 package gui.components.button;
 
+import game.NewGame;
 import main.Main;
-import game.Game;
 
 public class ButtonNewGame extends Button
 {
@@ -13,19 +13,18 @@ public class ButtonNewGame extends Button
 	@Override
 	protected void click() 
 	{
-		if(Main.instanceManager.gameInstance == null) 
+		if(Main.instanceManager.newGameInstance == null) 
 		{
-			Main.instanceManager.gameInstance = new Game(); //Initialise the menu if it has not been already
-			Main.instanceManager.game = true;
+			Main.instanceManager.newGameInstance = new NewGame(); //Initialise the menu if it has not been already
+			Main.instanceManager.newGame = true;
 		}
 		
 		//Begin drawing the correct components and stop the unneeded ones
 		Main.instanceManager.menuInstance.draw = false;
-		Main.instanceManager.gameInstance.draw = true; //TODO Draw intro at first, finish setup class
 		
 		if(Main.instanceManager.menuInstance != null)
 		{
-			Main.instanceManager.menuInstance = null; //Remove the main menu from memory as you'll never need it on the options screen
+			Main.instanceManager.menuInstance = null; //Remove the main menu from memory as you'll never need it in game
 			Main.instanceManager.menu = false;
 		}
 	}

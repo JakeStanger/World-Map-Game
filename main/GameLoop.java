@@ -14,6 +14,7 @@ import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
 import static org.lwjgl.opengl.GL11.glOrtho;
 import game.Game;
+import game.Intro;
 import menu.Background;
 import menu.Menu;
 import menu.options.Options;
@@ -26,8 +27,10 @@ import util.InstanceManager;
 public class GameLoop 
 {
 	private Menu menu;
-	private Game game;
 	private Options options;
+	
+	private Game game;
+	private Intro intro;
 	
 	private Background background;
 	
@@ -59,9 +62,11 @@ public class GameLoop
 		//Update instance states
 		instanceHandler.updateInstances();
 		this.menu = instanceHandler.menuInstance;
-		this.game = instanceHandler.gameInstance;
 		this.options = instanceHandler.optionsInstance;
 		this.background = instanceHandler.backgroundInstance;
+	
+		this.game = instanceHandler.gameInstance;
+		this.intro = instanceHandler.introInstance;
 		
 		//Check which game component should be drawn
 		if((menu != null && menu.draw) || (options != null && options.draw)) //Draw background if menu or options loaded
@@ -89,7 +94,9 @@ public class GameLoop
 			if(background != null && background.draw) background.draw();
 		}
 		
-		if(game != null && game.draw)
+		if(intro != null && intro.draw) intro.draw();
+		
+		if(game != null && intro.draw)
 		{
 			game.tick();
 		
