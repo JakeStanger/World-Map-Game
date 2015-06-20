@@ -72,8 +72,9 @@ public class Countries
 			
 			URL website = new URL("http://roboguy99.co.uk/downloads/worldMap/countries.dat");
 			ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-			FileOutputStream fos = new FileOutputStream("countries.dat");
+			FileOutputStream fos = new FileOutputStream(FILE_NAME);
 			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+			fos.close();
 			loadCountries();
 		}
 		catch(IOException e)
