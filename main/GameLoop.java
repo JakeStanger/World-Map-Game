@@ -14,6 +14,7 @@ import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
 import static org.lwjgl.opengl.GL11.glOrtho;
 import game.Game;
+import menu.Background;
 import menu.Menu;
 import menu.options.Options;
 
@@ -27,6 +28,8 @@ public class GameLoop
 	private Menu menu;
 	private Game game;
 	private Options options;
+	
+	private Background background;
 	
 	private int pauseCount;
 	
@@ -58,16 +61,40 @@ public class GameLoop
 		this.menu = instanceHandler.menuInstance;
 		this.game = instanceHandler.gameInstance;
 		this.options = instanceHandler.optionsInstance;
+		this.background = instanceHandler.backgroundInstance;
 		
 		//Check which game component should be drawn
+		if((menu != null && menu.draw) || (options != null && options.draw)) //Draw background if menu or options loaded
+		{
+			Main.instanceManager.backgroundInstance = new Background(); //Initialise the menu if it has not been already
+			Main.instanceManager.background = true; //Inform instance manager to update
+		}
+		else
+		{
+			Main.instanceManager.backgroundInstance = null; //Initialise the menu if it has not been already
+			Main.instanceManager.background = false; //Inform instance manager to update
+		}
+		
 		//Null check is to stop the game crashing once components are unloaded
-		if(menu != null && menu.draw) menu.draw();
-		if(options != null && options.draw) options.draw(game != null && game.draw);
+		if(menu != null && menu.draw) 
+		{
+			menu.draw();
+			if(background != null && background.draw) background.draw();
+		}
+		
+		if(options != null && options.draw) 
+		{
+			options.draw(game != null && game.draw);
+			if(background != null && background.draw) background.draw();
+		}
+		
 		if(game != null && game.draw)
+		{
 			game.tick();
 		
 			checkForPause();
 			if (pauseCount > 0) pauseCount--;
+		}
 		
 		//Frame update
 		Display.update();

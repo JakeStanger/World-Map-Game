@@ -3,6 +3,7 @@ package util;
 import game.Game;
 import game.Intro;
 import game.Setup;
+import menu.Background;
 import menu.Menu;
 import menu.options.Options;
 
@@ -28,6 +29,9 @@ public class InstanceManager
 	
 	public Generator generator;
 	public Setup setup;
+	
+	public Background backgroundInstance;
+	public boolean background;
 	
 	public InstanceManager()
 	{
@@ -55,5 +59,8 @@ public class InstanceManager
 		
 		if(options && optionsInstance == null) optionsInstance = new Options();
 		if(!options) optionsInstance = null;
+		
+		if(background && backgroundInstance == null) backgroundInstance = new Background();
+		if(!background) backgroundInstance = null;
 	}
 }
