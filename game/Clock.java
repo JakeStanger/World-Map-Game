@@ -59,8 +59,7 @@ public class Clock //TODO Fix occasional dates
 			}
 			this.ticks = this.tickRate;
 		}
-		//Draw and count down 1 less frame until second update
-		drawClock();
+		//Count down 1 less frame until second update
 		this.ticks--;
 	}
 	

@@ -51,6 +51,7 @@ public class Game
 		if(!paused) //Only tick game if not paused
 		{
 			drawGame();
+			clock.updateClock();
 		}
 		if (pauseCount > 0) pauseCount--;
 		if(paused) clock.drawClock(); //Display the clock even paused
@@ -63,7 +64,7 @@ public class Game
 	private void drawGame()
 	{
 		drawBackground();
-		clock.updateClock();
+		clock.drawClock();
 	}
 	
 	/**
