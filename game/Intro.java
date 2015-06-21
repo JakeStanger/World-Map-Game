@@ -6,8 +6,6 @@ import main.Main;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 
-import util.Generator;
-
 /**
  * Handles the introduction upon starting a new game
  * @author Jake
@@ -29,7 +27,7 @@ public class Intro
 	
 	public static String intro;
 	
-	public Intro(Setup setup, Generator generator)
+	public Intro()
 	{
 		intro = intro.replace("$STARTCITY$", Game.START_CITY);
 		intro = intro.replace("$STARTCOUNTRTY$", Game.START_COUNTRY);
@@ -69,9 +67,7 @@ public class Intro
 		{
 			this.draw = false;
 			
-			Main.instanceManager.updateGame(true);
 			Main.instanceManager.gameInstance.draw = true;
-			Main.instanceManager.updateIntro(false);
 		}
 	}
 }

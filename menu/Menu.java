@@ -11,6 +11,7 @@ import main.Main;
 import org.newdawn.slick.Color;
 
 import util.Metadata;
+import util.ResourceManager;
 
 
 /**
@@ -44,9 +45,9 @@ public class Menu
 	private Label lblVersion = new Label(20, Metadata.VERSION);
 	
 	
-	public Menu()
+	public Menu(ResourceManager resourceManagerInstance)
 	{
-		Main.menuTexture = Main.instanceManager.resourceManager.TERRAIN_MAP;
+		Main.menuTexture = resourceManagerInstance.TERRAIN_MAP;
 	}
 	
 	public void draw()

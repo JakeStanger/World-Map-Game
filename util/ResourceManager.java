@@ -24,7 +24,7 @@ public class ResourceManager
 			
 			TOOLBAR = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/Toolbar.png"));
 			
-			BTN_PLANE = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("asssets/textures/gui/buttons/Plane.png"));
+			BTN_PLANE = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Plane.png"));
 		}
 		catch(IOException e)
 		{

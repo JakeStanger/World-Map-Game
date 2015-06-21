@@ -13,24 +13,10 @@ public class ButtonQuitToMenu extends Button
 	@Override
 	protected void click() 
 	{
-		if(Main.instanceManager.menuInstance == null)
-		{
-			Main.instanceManager.updateMenu(true);
-		}
-		
 		//Begin drawing the correct components and stop the unneeded ones
 		Main.instanceManager.gameInstance.draw = false;
 		Main.instanceManager.optionsInstance.draw = false;
 		
 		Main.instanceManager.menuInstance.draw = true;
-		
-		if(Main.instanceManager.gameInstance != null)
-		{
-			Main.instanceManager.updateGame(false);
-		}
-		if(Main.instanceManager.optionsInstance != null)
-		{
-			Main.instanceManager.updateOptions(false);
-		}
 	}
 }

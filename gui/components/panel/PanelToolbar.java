@@ -19,7 +19,7 @@ public class PanelToolbar
 	
 	public void draw()
 	{
-		texture = Main.instanceManager.resourceManager.TOOLBAR;
+		texture = Main.instanceManager.resourceManagerInstance.TOOLBAR;
 		
 		glPushMatrix();
 			if(texture != null) texture.bind();

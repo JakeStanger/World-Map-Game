@@ -20,7 +20,7 @@ public class Setup
 	private HashMap<String, String[]> countryList;
 	private List<String> introList;
 	
-	public Setup(Generator generator)
+	public Setup(Generator generatorInstance)
 	{
 		Countries countryIO = new Countries();
 		this.countryList = countryIO.getCountries();
@@ -28,7 +28,7 @@ public class Setup
 		Intros introIO = new Intros();
 		this.introList = introIO.getIntros();
 		
-		this.generator = generator;
+		this.generator = generatorInstance;
 		
 		this.setStartAndDestination();
 		

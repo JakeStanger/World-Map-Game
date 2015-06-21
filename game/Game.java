@@ -60,27 +60,21 @@ public class Game
 	 * Check if the player has requested to pause the game, and if they have pause it.
 	 * Also handles unpausing the game again
 	 */
-	private void checkForPause() //TODO Fix memory leak on game pause TODO Investigate any other memory leaks
+	private void checkForPause() //TODO Fix memory leak (gui content not unloaded - keep instance of each button)				
 	{
 		Options options = Main.instanceManager.optionsInstance;
 		
 		//Check for game pause
 		if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && paused && pauseCount == 0)
 		{
-			if(options != null) options.draw = false;
-			Main.instanceManager.updateOptions(false);
+			options.draw = false;
 			
 			paused = false;
 			pauseCount = 30; //Stop pause spamming
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !paused && pauseCount == 0) 
 		{
-			System.out.println("Game paused");
-			
-			Main.instanceManager.updateOptions(true);
-			options = Main.instanceManager.optionsInstance;
-			
-			if(options != null)options.draw = true;
+			options.draw = true;
 			
 			paused = true;
 			pauseCount = 30; //Stop pause spamming

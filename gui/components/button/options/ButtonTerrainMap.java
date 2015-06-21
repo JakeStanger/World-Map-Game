@@ -13,6 +13,6 @@ public class ButtonTerrainMap extends Button
 	@Override
 	protected void click() 
 	{
-		Main.menuTexture = Main.instanceManager.resourceManager.TERRAIN_MAP;
+		Main.menuTexture = Main.instanceManager.resourceManagerInstance.TERRAIN_MAP;
 	}
 }

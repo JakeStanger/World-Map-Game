@@ -13,111 +13,39 @@ import menu.options.Options;
  * @author Jake
  *
  */
-public class InstanceManager
+public class InstanceManager //TODO Preload everything
 {
 	public Game gameInstance;
-	private boolean game;
 	
 	public Intro introInstance;
-	private boolean intro;
 	
 	public Menu menuInstance;
-	private boolean menu;
 	
 	public Options optionsInstance;
-	private boolean options;
 	
 	public Background backgroundInstance;
-	private boolean background;
 	
 	public Generator generatorInstance;
-	public ResourceManager resourceManager;
-	private Setup setupInstance;
+	public ResourceManager resourceManagerInstance;
+	public Setup setupInstance;
 	
 	public InstanceManager()
+	{	
+		load();
+	}
+	
+	private void load()
 	{
-		//Instances constantly in existence
+		//Util instances
 		generatorInstance = new Generator();
+		resourceManagerInstance = new ResourceManager();
 		setupInstance = new Setup(generatorInstance);
-		resourceManager = new ResourceManager();
 		
-		this.menu = true; //Draw the menu on game startup
-	}
-	
-	/**
-	 * Called every game tick (60 times per second).
-	 * Checks whether class instances are still needed and takes them in/out of existence accordingly
-	 */
-	public void updateInstances()
-	{
-		if(game && gameInstance == null) gameInstance = new Game();
-		if(!game) gameInstance = null;
-		
-		if(intro && introInstance == null) introInstance = new Intro(setupInstance, generatorInstance);
-		if (!intro) introInstance = null;
-		
-		if(menu && menuInstance == null) menuInstance = new Menu();
-		if(!menu) menuInstance = null;
-		
-		if(options && optionsInstance == null) optionsInstance = new Options();
-		if(!options) optionsInstance = null;
-		
-		if(background && backgroundInstance == null) backgroundInstance = new Background();
-		if(!background) backgroundInstance = null;
-	}
-	
-	/**
-	 * Update the new game instance.
-	 * If an instance does not exist one will be created, and vica versa.
-	 * @param keepInstance whether or not to keep the instance
-	 */
-	public void updateGame(boolean keepInstance)
-	{
-		game = keepInstance;
-		updateInstances();
-	}
-	
-	/**
-	 * Update the game instance.
-	 * If an instance does not exist one will be created, and vica versa.
-	 * @param keepInstance whether or not to keep the instance
-	 */
-	public void updateIntro(boolean keepInstance)
-	{
-		intro = keepInstance;
-		updateInstances();
-	}
-	
-	/**
-	 * Update the menu instance.
-	 * If an instance does not exist one will be created, and vica versa.
-	 * @param keepInstance whether or not to keep the instance
-	 */
-	public void updateMenu(boolean keepInstance)
-	{
-		menu = keepInstance;
-		updateInstances();
-	}
-	
-	/**
-	 * Update the options instance.
-	 * If an instance does not exist one will be created, and vica versa.
-	 * @param keepInstance whether or not to keep the instance
-	 */
-	public void updateOptions(boolean keepInstance)
-	{
-		options = keepInstance;
-		updateInstances();
-	}
-	
-	/**
-	 * Update the background instance.
-	 * If an instance does not exist one will be created, and vica versa.
-	 * @param keepInstance whether or not to keep the instance
-	 */
-	public void updateBackground(boolean keepInstance)
-	{
-		background = keepInstance;
-		updateInstances();
+		//Main game instances
+		gameInstance = new Game();
+		introInstance = new Intro();
+		menuInstance = new Menu(resourceManagerInstance);
+		optionsInstance = new Options();
+		backgroundInstance = new Background();
 	}
 }

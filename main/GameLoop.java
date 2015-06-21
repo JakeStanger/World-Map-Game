@@ -64,22 +64,12 @@ public class GameLoop
 		this.setCamera(); //Update OpenGL settings
 		
 		//Update instance states
-		instanceManager.updateInstances();
 		this.menu = instanceManager.menuInstance;
 		this.options = instanceManager.optionsInstance;
 		this.background = instanceManager.backgroundInstance;
 	
 		this.game = instanceManager.gameInstance;
 		this.intro = instanceManager.introInstance;
-		
-		//Check which game component should be drawn
-		if((menu != null && menu.draw) || (options != null && options.draw) || (game != null && game.draw)) //Draw background if menu or options loaded
-		{
-			instanceManager.updateBackground(true);
-			this.background = instanceManager.backgroundInstance;
-			this.background.draw();
-		}
-		else instanceManager.updateBackground(false);
 		
 		//Null check is to stop the game crashing once components are unloaded
 		if(menu != null && menu.draw) 
