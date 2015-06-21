@@ -6,14 +6,9 @@ import gui.components.button.ButtonNewGame;
 import gui.components.button.ButtonOptions;
 import gui.components.button.ButtonQuit;
 import gui.components.label.Label;
-
-import java.io.IOException;
-
 import main.Main;
 
 import org.newdawn.slick.Color;
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;
 
 import util.Metadata;
 
@@ -51,14 +46,7 @@ public class Menu
 	
 	public Menu()
 	{
-		try //Attempt to load the background texture
-		{
-			Main.menuTexture = TextureLoader.getTexture("JPG", ResourceLoader.getResourceAsStream("assets/textures/terrain/Earth_Terrain_1080.jpg"));
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		Main.menuTexture = Main.instanceManager.resourceManager.TERRAIN_MAP;
 	}
 	
 	public void draw()

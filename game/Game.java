@@ -1,6 +1,6 @@
 package game;
 
-import gui.components.panel.Panel;
+import gui.components.panel.PanelToolbar;
 import main.Main;
 import menu.options.Options;
 
@@ -22,16 +22,16 @@ public class Game
 	private int pauseCount;
 	
 	private Generator generator = new Generator();
-	private Clock clock;
 	
-	private Panel panel;
+	private Clock clock;
+	private PanelToolbar pnlToolbar;
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
 	public Game()
 	{
 		this.clock = new Clock(generator);
-		this.panel = new Panel();
+		this.pnlToolbar = new PanelToolbar();
 	}
 	
 	public void tick()
@@ -41,6 +41,7 @@ public class Game
 		{
 			drawGame();
 			clock.updateClock();
+			pnlToolbar.draw();
 		}
 		if (pauseCount > 0) pauseCount--;
 		if(paused) clock.drawClock(); //Display the clock even paused
@@ -53,7 +54,6 @@ public class Game
 	private void drawGame()
 	{
 		clock.drawClock();
-		panel.draw(0, Main.WINDOW_HEIGHT-100, Main.WINDOW_WIDTH, 100);
 	}
 	
 	/**

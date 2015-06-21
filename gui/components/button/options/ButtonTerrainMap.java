@@ -1,13 +1,7 @@
 package gui.components.button.options;
 
 import gui.components.button.Button;
-
-import java.io.IOException;
-
 import main.Main;
-
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;
 
 public class ButtonTerrainMap extends Button 
 {
@@ -19,13 +13,6 @@ public class ButtonTerrainMap extends Button
 	@Override
 	protected void click() 
 	{
-		try 
-		{
-			Main.menuTexture = TextureLoader.getTexture("JPG", ResourceLoader.getResourceAsStream("assets/textures/terrain/Earth_Terrain_1080.jpg"));
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		Main.menuTexture = Main.instanceManager.resourceManager.TERRAIN_MAP;
 	}
 }

@@ -27,17 +27,19 @@ public class InstanceManager
 	public Options optionsInstance;
 	private boolean options;
 	
-	public Generator generatorInstance;
-	private Setup setupInstance;
-	
 	public Background backgroundInstance;
 	private boolean background;
+	
+	public Generator generatorInstance;
+	public ResourceManager resourceManager;
+	private Setup setupInstance;
 	
 	public InstanceManager()
 	{
 		//Instances constantly in existence
 		generatorInstance = new Generator();
 		setupInstance = new Setup(generatorInstance);
+		resourceManager = new ResourceManager();
 		
 		this.menu = true; //Draw the menu on game startup
 	}

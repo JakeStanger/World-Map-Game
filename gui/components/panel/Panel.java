@@ -23,13 +23,13 @@ public class Panel
 	 * @param width the panel width
 	 * @param height the panel height
 	 */
-	public void draw(int x, int y, int width, int height)
+	public void draw(int x, int y, int width, int height, float[] colour)
 	{
 		glPushMatrix();
 			glTranslated(x, y, 0);
 			
 			glBegin(GL_QUADS);
-			glColor4d(0.4, 0.2, 0.9, 0.8);
+			glColor4d(colour[0], colour[1], colour[2], colour[3]);
 			glVertex2d(0, 0);
 			glVertex2d(width, 0);
 			glVertex2d(width, height);

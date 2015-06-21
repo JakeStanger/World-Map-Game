@@ -1,13 +1,7 @@
 package gui.components.button.options;
 
 import gui.components.button.Button;
-
-import java.io.IOException;
-
 import main.Main;
-
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;
 
 public class ButtonWhiteMap extends Button 
 {
@@ -19,13 +13,6 @@ public class ButtonWhiteMap extends Button
 	@Override
 	protected void click() 
 	{
-		try 
-		{
-			Main.menuTexture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/white/Earth_White_1080.png"));
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		Main.menuTexture = Main.instanceManager.resourceManager.WHITE_MAP;
 	}
 }
