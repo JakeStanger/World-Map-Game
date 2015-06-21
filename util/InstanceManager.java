@@ -72,7 +72,8 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	}
 	
 	/**
-	 * Update the new game instance
+	 * Update the new game instance.
+	 * If an instance does not exist one will be created, and vica versa.
 	 * @param keepInstance whether or not to keep the instance
 	 */
 	public void updateNewGame(boolean keepInstance)
@@ -82,7 +83,8 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	}
 	
 	/**
-	 * Update the new game instance
+	 * Update the new game instance.
+	 * If an instance does not exist one will be created, and vica versa.
 	 * @param keepInstance whether or not to keep the instance
 	 */
 	public void updateGame(boolean keepInstance)
@@ -92,7 +94,8 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	}
 	
 	/**
-	 * Update the game instance
+	 * Update the game instance.
+	 * If an instance does not exist one will be created, and vica versa.
 	 * @param keepInstance whether or not to keep the instance
 	 */
 	public void updateIntro(boolean keepInstance)
@@ -102,7 +105,8 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	}
 	
 	/**
-	 * Update the menu instance
+	 * Update the menu instance.
+	 * If an instance does not exist one will be created, and vica versa.
 	 * @param keepInstance whether or not to keep the instance
 	 */
 	public void updateMenu(boolean keepInstance)
@@ -112,7 +116,8 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	}
 	
 	/**
-	 * Update the options instance
+	 * Update the options instance.
+	 * If an instance does not exist one will be created, and vica versa.
 	 * @param keepInstance whether or not to keep the instance
 	 */
 	public void updateOptions(boolean keepInstance)
@@ -122,7 +127,8 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	}
 	
 	/**
-	 * Update the background instance
+	 * Update the background instance.
+	 * If an instance does not exist one will be created, and vica versa.
 	 * @param keepInstance whether or not to keep the instance
 	 */
 	public void updateBackground(boolean keepInstance)
