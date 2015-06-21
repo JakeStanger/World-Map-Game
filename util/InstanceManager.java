@@ -42,10 +42,10 @@ public class InstanceManager
 		setupInstance = new Setup(generatorInstance);
 		
 		//Main game instances
+		backgroundInstance = new Background();
 		gameInstance = new Game();
 		introInstance = new Intro();
 		menuInstance = new Menu(resourceManagerInstance);
 		optionsInstance = new Options();
-		backgroundInstance = new Background();
 	}
 }
