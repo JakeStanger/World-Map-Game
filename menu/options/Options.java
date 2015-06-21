@@ -7,6 +7,7 @@ import gui.components.button.options.ButtonWhiteMap;
 import gui.components.label.Label;
 import main.Main;
 
+import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 
 
@@ -37,13 +38,32 @@ public class Options
 		//Constructor code goes here
 	}
 	
+	/**
+	 * Draw the options screen
+	 * @param inGame whether or not the game is loaded
+	 */
 	public void draw(boolean inGame)
 	{	
 		Color.white.bind();
+		GL11.glEnable(GL11.GL_BLEND);
+		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+		if (!inGame) btnBack.draw(20, BUTTON_HEIGHT*2 + 60, BUTTON_LENGTH, BUTTON_HEIGHT);
+		else
+		{
+			GL11.glBegin(GL11.GL_QUADS);
+				GL11.glColor4f(0, 0, 0, 0.7F);
+				GL11.glVertex2f(0,0);
+			    GL11.glVertex2f(Main.WINDOW_WIDTH,0);
+			    GL11.glVertex2f(Main.WINDOW_WIDTH,Main.WINDOW_HEIGHT);
+			    GL11.glVertex2f(0,Main.WINDOW_HEIGHT);
+		    GL11.glEnd();
+			
+		    Color.white.bind();
+		    lblPaused.draw((Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size)-5, Main.WINDOW_HEIGHT-75, Color.white);
+		}
 		
 		btnTerrain.draw(20, 20, BUTTON_LENGTH, BUTTON_HEIGHT);
 		btnWhite.draw(20, BUTTON_HEIGHT + 40, BUTTON_LENGTH, BUTTON_HEIGHT);
-		if (!inGame) btnBack.draw(20, BUTTON_HEIGHT*2 + 60, BUTTON_LENGTH, BUTTON_HEIGHT);
-		else lblPaused.draw(Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size-20, Main.WINDOW_HEIGHT-50, Color.darkGray);
 	}
 }
