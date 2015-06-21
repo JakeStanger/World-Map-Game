@@ -60,8 +60,16 @@ public class Clock
 			this.ticks = this.tickRate;
 		}
 		//Draw and count down 1 less frame until second update
-		this.lblTime.draw(month, day, hour, minute, second);
+		drawClock();
 		this.ticks--;
+	}
+	
+	/**
+	 * Draw the clock.
+	 */
+	public void drawClock()
+	{
+		this.lblTime.draw(month, day, hour, minute, second);
 	}
 	
 	/**
