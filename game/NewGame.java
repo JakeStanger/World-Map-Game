@@ -17,8 +17,7 @@ public class NewGame
 	
 	private void intro()
 	{
-		Main.instanceManager.intro = true;
-		Main.instanceManager.forceUpdate();
+		Main.instanceManager.updateIntro(false);
 		Main.instanceManager.introInstance.draw = true;
 	}
 }

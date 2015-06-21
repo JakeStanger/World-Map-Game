@@ -94,7 +94,7 @@ public class Game
 	 * Check if the player has requested to pause the game, and if they have pause it.
 	 * Also handles unpausing the game again
 	 */
-	private void checkForPause() //TODO Fix options screen not drawing on pause
+	private void checkForPause()
 	{
 		Options options = Main.instanceManager.optionsInstance;
 		
@@ -102,7 +102,7 @@ public class Game
 		if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && paused && pauseCount == 0)
 		{
 			if(options != null) options.draw = false;
-			Main.instanceManager.options = false;
+			Main.instanceManager.updateOptions(false);
 			
 			paused = false;
 			pauseCount = 30; //Stop pause spamming
@@ -111,9 +111,7 @@ public class Game
 		{
 			System.out.println("Game paused");
 			
-			if(options == null) Main.instanceManager.options = true;
-			
-			Main.instanceManager.forceUpdate();
+			Main.instanceManager.updateOptions(true);
 			options = Main.instanceManager.optionsInstance;
 			
 			if(options != null)options.draw = true;

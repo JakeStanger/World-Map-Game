@@ -69,11 +69,9 @@ public class Intro
 		{
 			this.draw = false;
 			
-			Main.instanceManager.gameInstance = new Game();
-			Main.instanceManager.game = true;
+			Main.instanceManager.updateGame(true);
 			Main.instanceManager.gameInstance.draw = true;
-			
-			Main.instanceManager.intro = false;
+			Main.instanceManager.updateIntro(false);
 		}
 	}
 }

@@ -1,7 +1,6 @@
 package gui.components.button;
 
 import main.Main;
-import menu.options.Options;
 
 public class ButtonOptions extends Button 
 {
@@ -16,8 +15,7 @@ public class ButtonOptions extends Button
 		//Begin drawing the game instead of the main menu
 		if(Main.instanceManager.optionsInstance == null)
 		{
-			Main.instanceManager.optionsInstance = new Options(); //Initialise the menu if it has not been already
-			Main.instanceManager.options = true; //Inform instance manager to update
+			Main.instanceManager.updateOptions(true);
 		}
 		
 		//Begin drawing the correct components and stop the unneeded ones
@@ -26,8 +24,7 @@ public class ButtonOptions extends Button
 		
 		if(Main.instanceManager.menuInstance != null) 
 		{
-			Main.instanceManager.menuInstance = null; //Remove the main menu from memory as you'll never need it on the options screen
-			Main.instanceManager.menu = false;
+			Main.instanceManager.updateMenu(false);
 		}
 	}
 }
