@@ -13,7 +13,7 @@ import menu.options.Options;
  * @author Jake
  *
  */
-public class InstanceManager //TODO Preload everything
+public class InstanceManager
 {
 	public Game gameInstance;
 	

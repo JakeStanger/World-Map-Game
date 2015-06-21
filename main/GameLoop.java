@@ -39,6 +39,14 @@ public class GameLoop
 	{
 		this.instanceManager = Main.instanceManager;
 		
+		//Update instance states
+		this.menu = instanceManager.menuInstance;
+		this.options = instanceManager.optionsInstance;
+		this.background = instanceManager.backgroundInstance;
+	
+		this.game = instanceManager.gameInstance;
+		this.intro = instanceManager.introInstance;
+		
 		try
 		{
 			while(!Display.isCloseRequested()) //Run the game loop
@@ -63,32 +71,23 @@ public class GameLoop
 	{
 		this.setCamera(); //Update OpenGL settings
 		
-		//Update instance states
-		this.menu = instanceManager.menuInstance;
-		this.options = instanceManager.optionsInstance;
-		this.background = instanceManager.backgroundInstance;
-	
-		this.game = instanceManager.gameInstance;
-		this.intro = instanceManager.introInstance;
-		
-		//Null check is to stop the game crashing once components are unloaded
-		if(menu != null && menu.draw) 
+		if(menu.draw) 
 		{
-			if(background != null && background.draw) background.draw();
+			background.draw();
 			menu.draw();
 		}
 		
-		if(options != null && options.draw) 
+		if(options.draw) 
 		{
-			if(background != null && background.draw) background.draw();
+			background.draw();
 			options.draw(game != null && game.draw);
 		}
 		
-		if(intro != null && intro.draw) intro.draw();
+		if(intro.draw) intro.draw();
 		
-		if(game != null && game.draw)
+		if(game.draw)
 		{
-			if(background != null && background.draw) background.draw();
+			background.draw();
 			game.tick();
 		}
 		

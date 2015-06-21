@@ -35,7 +35,6 @@ public class Intro
 		intro = intro.replace("$ENDCOUNTRY$", Game.END_COUNTRY);
 		
 		lblIntro.setText(intro);
-		System.out.println(lblIntro.getText());
 		 
 		lblStartCountry.setText("Start country: " + Game.START_COUNTRY);
 		lblStartCity.setText("Start city: " + Game.START_CITY);
