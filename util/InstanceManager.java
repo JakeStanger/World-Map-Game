@@ -13,7 +13,7 @@ import menu.options.Options;
  * @author Jake
  *
  */
-public class InstanceManager //TODO Redesign to have separate method for each class
+public class InstanceManager
 {
 	public Game gameInstance;
 	private boolean game;
