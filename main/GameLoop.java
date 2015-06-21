@@ -71,25 +71,11 @@ public class GameLoop
 	{
 		this.setCamera(); //Update OpenGL settings
 		
-		if(menu.draw) 
-		{
-			background.draw();
-			menu.draw();
-		}
-		
-		if(options.draw) 
-		{
-			background.draw();
-			options.draw(game.draw);
-		}
-		
+		if(!intro.draw) background.draw(); //Check not on screen which does not require background
+		if(menu.draw) menu.draw();
+		if(options.draw) options.draw(game.draw);
 		if(intro.draw) intro.draw();
-		
-		if(game.draw)
-		{
-			background.draw();
-			game.tick();
-		}
+		if(game.draw) game.tick();
 		
 		//Frame update
 		Display.update();
