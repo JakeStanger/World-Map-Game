@@ -70,48 +70,40 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 		if(background && backgroundInstance == null) backgroundInstance = new Background();
 		if(!background) backgroundInstance = null;
 	}
-
-	/**
-	 * Force update the instances
-	 */
-	public void forceUpdate()
+	
+	public void updateNewGame(boolean keepInstance)
 	{
+		newGame = keepInstance;
 		updateInstances();
 	}
 	
-	public void updateNewGame(boolean instance)
+	public void updateGame(boolean keepInstance)
 	{
-		if(instance && newGameInstance == null) newGameInstance = new NewGame();
-		if(!instance) newGameInstance = null;
+		game = keepInstance;
+		updateInstances();
 	}
 	
-	public void updateGame(boolean instance)
+	public void updateIntro(boolean keepInstance)
 	{
-		if(instance && gameInstance == null) gameInstance = new Game();
-		if(!instance) gameInstance = null;
+		intro = keepInstance;
+		updateInstances();
 	}
 	
-	public void updateIntro(boolean instance)
+	public void updateMenu(boolean keepInstance)
 	{
-		if(instance && introInstance == null) introInstance = new Intro(setupInstance, generatorInstance);
-		if(!instance) introInstance = null;
+		menu = keepInstance;
+		updateInstances();
 	}
 	
-	public void updateMenu(boolean instance)
+	public void updateOptions(boolean keepInstance)
 	{
-		if(instance && menuInstance == null) menuInstance = new Menu();
-		if(!instance) menuInstance = null;
+		options = keepInstance;
+		updateInstances();
 	}
 	
-	public void updateOptions(boolean instance)
+	public void updateBackground(boolean keepInstance)
 	{
-		if(instance && optionsInstance == null) optionsInstance = new Options();
-		if(!instance) optionsInstance = null;
-	}
-	
-	public void updateBackground(boolean instance)
-	{
-		if(instance && backgroundInstance == null) backgroundInstance = new Background();
-		if(!instance) backgroundInstance = null;
+		background = keepInstance;
+		updateInstances();
 	}
 }
