@@ -17,25 +17,25 @@ import menu.options.Options;
 public class InstanceManager //TODO Redesign to have separate method for each class
 {
 	public Game gameInstance;
-	public boolean game;
+	private boolean game;
 	
 	public Intro introInstance;
-	public boolean intro;
+	private boolean intro;
 	
 	public NewGame newGameInstance;
-	public boolean newGame;	
+	private boolean newGame;	
 	
 	public Menu menuInstance;
-	public boolean menu;
+	private boolean menu;
 	
 	public Options optionsInstance;
-	public boolean options;
+	private boolean options;
 	
 	public Generator generatorInstance;
-	public Setup setupInstance;
+	private Setup setupInstance;
 	
 	public Background backgroundInstance;
-	public boolean background;
+	private boolean background;
 	
 	public InstanceManager()
 	{
