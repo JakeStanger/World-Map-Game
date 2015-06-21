@@ -29,7 +29,7 @@ public class Panel
 			glTranslated(x, y, 0);
 			
 			glBegin(GL_QUADS);
-			glColor4d(0.6, 0.6, 0.6, 0.8);
+			glColor4d(0.4, 0.2, 0.9, 0.8);
 			glVertex2d(0, 0);
 			glVertex2d(width, 0);
 			glVertex2d(width, height);

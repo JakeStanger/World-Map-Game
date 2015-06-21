@@ -1,5 +1,6 @@
 package game;
 
+import gui.components.panel.Panel;
 import main.Main;
 import menu.options.Options;
 
@@ -23,11 +24,14 @@ public class Game
 	private Generator generator = new Generator();
 	private Clock clock;
 	
+	private Panel panel;
+	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
 	public Game()
 	{
 		this.clock = new Clock(generator);
+		this.panel = new Panel();
 	}
 	
 	public void tick()
@@ -49,6 +53,7 @@ public class Game
 	private void drawGame()
 	{
 		clock.drawClock();
+		panel.draw(0, Main.WINDOW_HEIGHT-100, Main.WINDOW_WIDTH, 100);
 	}
 	
 	/**
