@@ -38,11 +38,6 @@ public class Options
 	
 	private Label lblPaused = new Label(30, "Paused");
 	
-	public Options()
-	{
-		//Constructor code goes here
-	}
-	
 	/**
 	 * Draw the options screen
 	 * @param inGame whether or not the game is loaded
@@ -85,7 +80,6 @@ public class Options
 	
 	    Color.white.bind(); //Reset colour settings (may not be needed)
 	    lblPaused.draw((Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size)-5, Main.WINDOW_HEIGHT-75, Color.white);
-	    
 	    
 	    btnQuitToMenu.draw(20, Main.WINDOW_HEIGHT-(BUTTON_HEIGHT*2)-70, BUTTON_LENGTH, BUTTON_HEIGHT);
 	    btnQuit.draw(20, Main.WINDOW_HEIGHT-(BUTTON_HEIGHT)-50, BUTTON_LENGTH, BUTTON_HEIGHT);
