@@ -78,4 +78,40 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	{
 		updateInstances();
 	}
+	
+	public void updateNewGame(boolean instance)
+	{
+		if(instance && newGameInstance == null) newGameInstance = new NewGame();
+		if(!instance) newGameInstance = null;
+	}
+	
+	public void updateGame(boolean instance)
+	{
+		if(instance && gameInstance == null) gameInstance = new Game();
+		if(!instance) gameInstance = null;
+	}
+	
+	public void updateIntro(boolean instance)
+	{
+		if(instance && introInstance == null) introInstance = new Intro(setupInstance, generatorInstance);
+		if(!instance) introInstance = null;
+	}
+	
+	public void updateMenu(boolean instance)
+	{
+		if(instance && menuInstance == null) menuInstance = new Menu();
+		if(!instance) menuInstance = null;
+	}
+	
+	public void updateOptions(boolean instance)
+	{
+		if(instance && optionsInstance == null) optionsInstance = new Options();
+		if(!instance) optionsInstance = null;
+	}
+	
+	public void updateBackground(boolean instance)
+	{
+		if(instance && backgroundInstance == null) backgroundInstance = new Background();
+		if(!instance) backgroundInstance = null;
+	}
 }
