@@ -3,6 +3,7 @@ package gui.components.label;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.glDisable;
 import static org.lwjgl.opengl.GL11.glEnable;
+import gui.Component;
 
 import java.awt.Font;
 import java.io.InputStream;
@@ -18,7 +19,7 @@ import org.newdawn.slick.util.ResourceLoader;
  * @author Jake
  *
  */
-public class Label
+public class Label extends Component
 {
 	private UnicodeFont font;
 	private String text;

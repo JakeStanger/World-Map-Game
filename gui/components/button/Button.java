@@ -12,6 +12,7 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTranslated;
 import static org.lwjgl.opengl.GL11.glVertex2d;
+import gui.Component;
 
 import java.awt.Font;
 import java.io.InputStream;
@@ -30,7 +31,7 @@ import org.newdawn.slick.util.ResourceLoader;
  * @author Jake
  *
  */
-public abstract class Button 
+public abstract class Button extends Component
 {
 	private UnicodeFont font;
 	private String text;

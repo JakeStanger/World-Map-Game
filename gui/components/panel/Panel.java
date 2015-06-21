@@ -8,13 +8,16 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTranslated;
 import static org.lwjgl.opengl.GL11.glVertex2d;
+import gui.Component;
+
+import org.newdawn.slick.opengl.Texture;
 
 /**
  * A GUI panel
  * @author Jake
  *
  */
-public class Panel
+public class Panel extends Component
 {
 	/**
 	 * Draw the panel
@@ -23,17 +26,21 @@ public class Panel
 	 * @param width the panel width
 	 * @param height the panel height
 	 */
-	public void draw(int x, int y, int width, int height, float[] colour)
+	public void draw(int x, int y, int width, int height, Texture texture)
 	{
 		glPushMatrix();
 			glTranslated(x, y, 0);
 			
 			glBegin(GL_QUADS);
-			glColor4d(colour[0], colour[1], colour[2], colour[3]);
+			glColor4d(1, 1, 1, 1); //Texture fallback
 			glVertex2d(0, 0);
+			
 			glVertex2d(width, 0);
+			
 			glVertex2d(width, height);
+			
 			glVertex2d(0, height);
+			
 		glEnd();
 		glPopMatrix();
 	}
