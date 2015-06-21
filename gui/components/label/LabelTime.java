@@ -76,7 +76,7 @@ public class LabelTime
 		String text = month + ", " + day + dayEnd + " " + hour + ":" + minuteStr + ":" + secondStr;
 		
 		glEnable(GL_TEXTURE_2D);
-			font.drawString(Main.WINDOW_WIDTH - 450, 10, text, Color.green);
+			font.drawString(Main.WINDOW_WIDTH - 455, 10, text, Color.green);
 		glDisable(GL_TEXTURE_2D);
 	}
 }
