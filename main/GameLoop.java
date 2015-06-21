@@ -39,9 +39,16 @@ public class GameLoop
 	{
 		this.instanceManager = Main.instanceManager;
 		
-		while(!Display.isCloseRequested()) //Run the game loop
+		try
 		{
-			tick();
+			while(!Display.isCloseRequested()) //Run the game loop
+			{
+				tick();
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
 		}
 		//Close the program
 		Display.destroy();
