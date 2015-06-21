@@ -2,7 +2,6 @@ package util;
 
 import game.Game;
 import game.Intro;
-import game.NewGame;
 import game.Setup;
 import menu.Background;
 import menu.Menu;
@@ -21,9 +20,6 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	
 	public Intro introInstance;
 	private boolean intro;
-	
-	public NewGame newGameInstance;
-	private boolean newGame;	
 	
 	public Menu menuInstance;
 	private boolean menu;
@@ -52,9 +48,6 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 	 */
 	public void updateInstances()
 	{
-		if(newGame && newGameInstance == null) newGameInstance = new NewGame();
-		if(!newGame) newGameInstance = null;
-		
 		if(game && gameInstance == null) gameInstance = new Game();
 		if(!game) gameInstance = null;
 		
@@ -69,17 +62,6 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 		
 		if(background && backgroundInstance == null) backgroundInstance = new Background();
 		if(!background) backgroundInstance = null;
-	}
-	
-	/**
-	 * Update the new game instance.
-	 * If an instance does not exist one will be created, and vica versa.
-	 * @param keepInstance whether or not to keep the instance
-	 */
-	public void updateNewGame(boolean keepInstance)
-	{
-		newGame = keepInstance;
-		updateInstances();
 	}
 	
 	/**
