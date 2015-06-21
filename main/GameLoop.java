@@ -81,22 +81,22 @@ public class GameLoop
 		//Null check is to stop the game crashing once components are unloaded
 		if(menu != null && menu.draw) 
 		{
-			menu.draw();
 			if(background != null && background.draw) background.draw();
+			menu.draw();
 		}
 		
 		if(options != null && options.draw) 
 		{
-			options.draw(game != null && game.draw);
 			if(background != null && background.draw) background.draw();
+			options.draw(game != null && game.draw);
 		}
 		
 		if(intro != null && intro.draw) intro.draw();
 		
 		if(game != null && game.draw)
 		{
-			game.tick();
 			if(background != null && background.draw) background.draw();
+			game.tick();
 		}
 		
 		//Frame update
