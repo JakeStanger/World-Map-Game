@@ -53,6 +53,7 @@ public class Game
 			drawGame();
 		}
 		if (pauseCount > 0) pauseCount--;
+		if(paused) clock.drawClock(); //Display the clock even paused
 	}
 	
 	public int minute;
@@ -89,13 +90,11 @@ public class Game
         glPopMatrix();
 	}
 	
-
-	
 	/**
 	 * Check if the player has requested to pause the game, and if they have pause it.
 	 * Also handles unpausing the game again
 	 */
-	private void checkForPause()
+	private void checkForPause() //TODO Fix options screen not drawing on pause
 	{
 		Options options = Main.instanceManager.optionsInstance;
 		
@@ -106,18 +105,21 @@ public class Game
 			Main.instanceManager.options = false;
 			
 			paused = false;
-			pauseCount = 10; //Stop pause spamming
+			pauseCount = 30; //Stop pause spamming
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !paused && pauseCount == 0) 
 		{
 			System.out.println("Game paused");
 			
 			if(options == null) Main.instanceManager.options = true;
+			
 			Main.instanceManager.forceUpdate();
-			if(options != null) options.draw = true;
+			options = Main.instanceManager.optionsInstance;
+			
+			if(options != null)options.draw = true;
 			
 			paused = true;
-			pauseCount = 10; //Stop pause spamming
+			pauseCount = 30; //Stop pause spamming
 		}
 	}
 }
