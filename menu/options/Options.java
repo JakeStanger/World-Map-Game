@@ -1,9 +1,11 @@
 package menu.options;
 
 import gui.components.button.Button;
-import gui.components.button.options.ButtonMenuReturn;
+import gui.components.button.ButtonQuit;
 import gui.components.button.options.ButtonTerrainMap;
 import gui.components.button.options.ButtonWhiteMap;
+import gui.components.button.options.game.ButtonQuitToMenu;
+import gui.components.button.options.menu.ButtonMenuReturn;
 import gui.components.label.Label;
 import main.Main;
 
@@ -20,7 +22,7 @@ public class Options
 	/**
 	 * Determines the length of all buttons on the main menu
 	 */
-	private static final int BUTTON_LENGTH = 545;
+	private static final int BUTTON_LENGTH = 600;
 	
 	/**
 	 * True if the options screen should be drawn
@@ -30,6 +32,9 @@ public class Options
 	private Button btnTerrain = new ButtonTerrainMap(BUTTON_HEIGHT, "Use Terrain Map");
 	private Button btnWhite = new ButtonWhiteMap(BUTTON_HEIGHT, "Use White Map");
 	private Button btnBack = new ButtonMenuReturn(BUTTON_HEIGHT, "Back");
+	
+	private Button btnQuitToMenu = new ButtonQuitToMenu(BUTTON_HEIGHT, "Quit to main menu");
+	private Button btnQuit = new ButtonQuit(BUTTON_HEIGHT, "Quit to desktop");
 	
 	private Label lblPaused = new Label(30, "Paused");
 	
@@ -69,6 +74,7 @@ public class Options
 	 */
 	private void drawInGame()
 	{
+		//Draw the black background overlay
 		GL11.glBegin(GL11.GL_QUADS);
 			GL11.glColor4f(0, 0, 0, 0.7F);
 			GL11.glVertex2f(0,0);
@@ -77,7 +83,12 @@ public class Options
 		    GL11.glVertex2f(0,Main.WINDOW_HEIGHT);
 	    GL11.glEnd();
 	
-	    Color.white.bind();
+	    Color.white.bind(); //Reset colour settings (may not be needed)
 	    lblPaused.draw((Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size)-5, Main.WINDOW_HEIGHT-75, Color.white);
+	    
+	    
+	    btnQuitToMenu.draw(20, Main.WINDOW_HEIGHT-(BUTTON_HEIGHT*2)-70, BUTTON_LENGTH, BUTTON_HEIGHT);
+	    btnQuit.draw(20, Main.WINDOW_HEIGHT-(BUTTON_HEIGHT)-50, BUTTON_LENGTH, BUTTON_HEIGHT);
+	    
 	}
 }
