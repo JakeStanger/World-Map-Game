@@ -80,7 +80,7 @@ public class GameLoop
 		if(options.draw) 
 		{
 			background.draw();
-			options.draw(game != null && game.draw);
+			options.draw(game.draw);
 		}
 		
 		if(intro.draw) intro.draw();
