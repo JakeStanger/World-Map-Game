@@ -14,7 +14,7 @@ import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
 
 /**
- * A simple text label with a transparent background TODO Convert this into either an abstract class or interface
+ * A simple text label with a transparent background
  * @author Jake
  *
  */

@@ -109,7 +109,8 @@ public class Generator
 		else if (month == "February") days = 27;
 		else days = 29;
 		
-		return random.nextInt(days)+1; //Add 1 to compensate for 0
+		if(days == 0) days++;
+		return random.nextInt(days); //Add 1 to compensate for 0
 	}
 	
 	/**
