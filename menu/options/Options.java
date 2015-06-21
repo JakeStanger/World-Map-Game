@@ -54,8 +54,8 @@ public class Options
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
 		//Draw in-game or in-menu specific things
-		if (!inGame) drawMenu();
-		else drawInGame();
+		if (inGame) drawInGame();
+		else drawMenu();
 		
 		btnTerrain.draw(20, 20, BUTTON_LENGTH, BUTTON_HEIGHT);
 		btnWhite.draw(20, BUTTON_HEIGHT + 40, BUTTON_LENGTH, BUTTON_HEIGHT);
