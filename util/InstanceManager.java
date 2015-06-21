@@ -71,36 +71,60 @@ public class InstanceManager //TODO Redesign to have separate method for each cl
 		if(!background) backgroundInstance = null;
 	}
 	
+	/**
+	 * Update the new game instance
+	 * @param keepInstance whether or not to keep the instance
+	 */
 	public void updateNewGame(boolean keepInstance)
 	{
 		newGame = keepInstance;
 		updateInstances();
 	}
 	
+	/**
+	 * Update the new game instance
+	 * @param keepInstance whether or not to keep the instance
+	 */
 	public void updateGame(boolean keepInstance)
 	{
 		game = keepInstance;
 		updateInstances();
 	}
 	
+	/**
+	 * Update the game instance
+	 * @param keepInstance whether or not to keep the instance
+	 */
 	public void updateIntro(boolean keepInstance)
 	{
 		intro = keepInstance;
 		updateInstances();
 	}
 	
+	/**
+	 * Update the menu instance
+	 * @param keepInstance whether or not to keep the instance
+	 */
 	public void updateMenu(boolean keepInstance)
 	{
 		menu = keepInstance;
 		updateInstances();
 	}
 	
+	/**
+	 * Update the options instance
+	 * @param keepInstance whether or not to keep the instance
+	 */
 	public void updateOptions(boolean keepInstance)
 	{
 		options = keepInstance;
 		updateInstances();
 	}
 	
+	/**
+	 * Update the background instance
+	 * @param keepInstance whether or not to keep the instance
+	 */
 	public void updateBackground(boolean keepInstance)
 	{
 		background = keepInstance;
