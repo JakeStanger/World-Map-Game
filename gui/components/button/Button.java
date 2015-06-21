@@ -92,7 +92,6 @@ public abstract class Button
 			glVertex2d(width, 0);
 			glVertex2d(width, height);
 			glVertex2d(0, height);
-			
 		glEnd();
 	}
 	
