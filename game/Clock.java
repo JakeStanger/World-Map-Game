@@ -6,7 +6,7 @@ import gui.components.label.LabelTime;
 /**
  * Handles the in-game clock
  */
-public class Clock //TODO Fix occasional dates
+public class Clock
 {
 	public String month;
 	public int day, hour, minute, second;
@@ -25,7 +25,9 @@ public class Clock //TODO Fix occasional dates
 	}
 	
 	/**
-	 * Update the clock by 1 second
+	 * Update the clock once per second.
+	 * Counts down by 1 tick every time called 
+	 * and counts 60 ticks before incrementing 1 second.
 	 */
 	public void updateClock()
 	{
