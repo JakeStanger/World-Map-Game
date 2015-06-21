@@ -48,22 +48,36 @@ public class Options
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-		if (!inGame) btnBack.draw(20, BUTTON_HEIGHT*2 + 60, BUTTON_LENGTH, BUTTON_HEIGHT);
-		else
-		{
-			GL11.glBegin(GL11.GL_QUADS);
-				GL11.glColor4f(0, 0, 0, 0.7F);
-				GL11.glVertex2f(0,0);
-			    GL11.glVertex2f(Main.WINDOW_WIDTH,0);
-			    GL11.glVertex2f(Main.WINDOW_WIDTH,Main.WINDOW_HEIGHT);
-			    GL11.glVertex2f(0,Main.WINDOW_HEIGHT);
-		    GL11.glEnd();
-			
-		    Color.white.bind();
-		    lblPaused.draw((Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size)-5, Main.WINDOW_HEIGHT-75, Color.white);
-		}
+		//Draw in-game or in-menu specific things
+		if (!inGame) drawMenu();
+		else drawInGame();
 		
 		btnTerrain.draw(20, 20, BUTTON_LENGTH, BUTTON_HEIGHT);
 		btnWhite.draw(20, BUTTON_HEIGHT + 40, BUTTON_LENGTH, BUTTON_HEIGHT);
+	}
+	
+	/**
+	 * Draw main menu specific options content.
+	 */
+	private void drawMenu()
+	{
+		btnBack.draw(20, BUTTON_HEIGHT*2 + 60, BUTTON_LENGTH, BUTTON_HEIGHT);
+	}
+	
+	/**
+	 * Draw in-game specific options content
+	 */
+	private void drawInGame()
+	{
+		GL11.glBegin(GL11.GL_QUADS);
+			GL11.glColor4f(0, 0, 0, 0.7F);
+			GL11.glVertex2f(0,0);
+		    GL11.glVertex2f(Main.WINDOW_WIDTH,0);
+		    GL11.glVertex2f(Main.WINDOW_WIDTH,Main.WINDOW_HEIGHT);
+		    GL11.glVertex2f(0,Main.WINDOW_HEIGHT);
+	    GL11.glEnd();
+	
+	    Color.white.bind();
+	    lblPaused.draw((Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size)-5, Main.WINDOW_HEIGHT-75, Color.white);
 	}
 }
