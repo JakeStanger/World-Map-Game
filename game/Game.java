@@ -60,7 +60,7 @@ public class Game
 	 * Check if the player has requested to pause the game, and if they have pause it.
 	 * Also handles unpausing the game again
 	 */
-	private void checkForPause()
+	private void checkForPause() //TODO Fix memory leak on game pause TODO Investigate any other memory leaks
 	{
 		Options options = Main.instanceManager.optionsInstance;
 		
