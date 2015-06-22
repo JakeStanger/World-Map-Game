@@ -7,6 +7,6 @@ public class PanelPlane extends Panel
 {
 	public PanelPlane()
 	{
-		super(ResourceManager.TOOLBAR); //TODO Update placeholder texture
+		super(ResourceManager.PANEL);
 	}
 }
