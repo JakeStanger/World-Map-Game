@@ -32,16 +32,15 @@ public class Panel extends Component
 			glTranslated(x, y, 0);
 			
 			glBegin(GL_QUADS);
-			glColor4d(1, 1, 1, 1); //Texture fallback
-			glVertex2d(0, 0);
-			
-			glVertex2d(width, 0);
-			
-			glVertex2d(width, height);
-			
-			glVertex2d(0, height);
-			
-		glEnd();
+				glColor4d(1, 1, 1, 1); //Texture fallback
+				glVertex2d(0, 0);
+				
+				glVertex2d(width, 0);
+				
+				glVertex2d(width, height);
+				
+				glVertex2d(0, height);
+			glEnd();
 		glPopMatrix();
 	}
 }
