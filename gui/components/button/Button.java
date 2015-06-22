@@ -31,7 +31,7 @@ import org.newdawn.slick.util.ResourceLoader;
  * @author Jake
  *
  */
-public abstract class Button extends Component
+public abstract class Button extends Component //TODO Fix strange render issues with new game and options back buttons
 {
 	private UnicodeFont font;
 	private String text;
@@ -79,14 +79,15 @@ public abstract class Button extends Component
 				else
 				{
 					drawHover(x, y, width, height); //When the mouse is within the button area
-					clicked = false;
 				}
 			}
 			else 
 			{
 				drawNormal(x, y, width, height); //When the mouse is not within the button area
-				clicked = false;
 			}
+			
+			if(!Mouse.isButtonDown(0)) clicked = false; //Only reset clicked once the mouse button is released
+			
 			drawFont(0, 0, this.text, Color.white); //Draw the button text
 		glPopMatrix();
 	}
