@@ -60,6 +60,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 */
 	public void draw(double x, double y, int width, int height)
 	{	
+		Color.white.bind();
 		glPushMatrix();
 			glTranslated(x, y, 0); //Make sure to draw the button at the specified coordinates
 			
