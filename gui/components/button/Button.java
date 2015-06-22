@@ -70,7 +70,7 @@ public abstract class Button extends Component
 			//Check for mouse status and call correct draw method accordingly
 			if((mouseX > x && mouseX < x + width) && (mouseY > y && mouseY < y + height))
 			{
-				if(Mouse.isButtonDown(0)) //If the button has been clicked
+				if(Mouse.isButtonDown(0) && !clicked) //If the button has been clicked
 				{
 					drawClick(x, y, width, height); //This will very rarely, if at all, be seen.
 					click(); //Actual click event

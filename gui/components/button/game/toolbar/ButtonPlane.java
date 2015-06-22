@@ -15,12 +15,9 @@ public class ButtonPlane extends ButtonImage
 	@Override
 	protected void click()
 	{
-		if(!clicked)
-		{
-			PanelPlane pnlPlane = Main.instanceManager.gameInstance.guiEngine.pnlPlane;
+		PanelPlane pnlPlane = Main.instanceManager.gameInstance.guiEngine.pnlPlane;
 			
-			if(pnlPlane.draw) pnlPlane.draw = false;
-			else pnlPlane.draw = true;
-		}
+		if(pnlPlane.draw) pnlPlane.draw = false;
+		else pnlPlane.draw = true;
 	}
 }
