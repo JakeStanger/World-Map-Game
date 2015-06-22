@@ -15,13 +15,13 @@ public class Toolbar
 	{
 		this.pnlToolbar = new PanelToolbar();
 		
-		this.btnPlane = new ButtonPlane(35, "");
+		this.btnPlane = new ButtonPlane();
 	}
 	
 	public void draw()
 	{
 		pnlToolbar.draw();
 		
-		btnPlane.draw(20, Main.WINDOW_HEIGHT-64, 35, 35);
+		btnPlane.draw(20, Main.WINDOW_HEIGHT-50, 35, 35);
 	}
 }
