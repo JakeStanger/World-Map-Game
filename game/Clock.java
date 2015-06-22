@@ -6,7 +6,7 @@ import gui.components.label.LabelTime;
 /**
  * Handles the in-game clock
  */
-public class Clock
+public class Clock //TODO Fix month not generating properly TODO Fix 0th of months
 {
 	public String month;
 	public int day, hour, minute, second;
