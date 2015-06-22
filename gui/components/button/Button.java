@@ -85,7 +85,7 @@ public abstract class Button extends Component
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	private void drawNormal(double x, double y, int width, int height)
+	protected void drawNormal(double x, double y, int width, int height)
 	{
 		glBegin(GL_QUADS);
 			glColor4d(0.6, 0.6, 0.6, 0.8);
@@ -103,7 +103,7 @@ public abstract class Button extends Component
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	private void drawHover(double x, double y, int width, int height)
+	protected void drawHover(double x, double y, int width, int height)
 	{
 		glBegin(GL_QUADS);
 			glColor3d(0.7, 0.7, 0.7);
@@ -121,7 +121,7 @@ public abstract class Button extends Component
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	private void drawClick(double x, double y, int width, int height)
+	protected void drawClick(double x, double y, int width, int height)
 	{
 		glBegin(GL_QUADS);
 			glColor3d(0.75, 0.75, 0.75);
