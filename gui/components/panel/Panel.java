@@ -9,7 +9,6 @@ import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex2f;
-import main.Main;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
@@ -22,6 +21,7 @@ import org.newdawn.slick.opengl.Texture;
 public class Panel
 {
 	private Texture texture;
+	public boolean draw;
 	
 	public Panel(Texture texture)
 	{
@@ -31,10 +31,10 @@ public class Panel
 	/**
 	 * Draw the toolbar at the bottom of the screen.
 	 */
-	public void draw(int x, int y, int width)
+	public void draw(float x, float y)
 	{
 		glPushMatrix();
-			glTranslatef(0F, (float)Main.WINDOW_HEIGHT-texture.getTextureHeight(), 0F);
+			glTranslatef(x, y, 0);
 			
 			if(texture != null) texture.bind();
 			Color.lightGray.bind();
