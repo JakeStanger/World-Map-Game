@@ -13,8 +13,8 @@ public abstract class ButtonImage extends Button
 {
 	private Texture texture;
 	
-	private Color hover = new Color(0.9f,0.9f,0.9f,1.0f);
-	private Color clicked = new Color(0.8f,0.8f,0.8f,1.0f);
+	private Color clHover = new Color(0.9f,0.9f,0.9f,1.0f);
+	protected Color clClicked = new Color(0.8f,0.8f,0.8f,1.0f);
 	
 	public ButtonImage(Texture texture)
 	{
@@ -49,7 +49,7 @@ public abstract class ButtonImage extends Button
 	protected void drawHover(double x, double y, int width, int height)
 	{
 		texture.bind();
-		hover.bind();
+		clHover.bind();
 		
 		glBegin(GL_QUADS);
 		    glTexCoord2f(0, 0);  //top left
@@ -69,7 +69,7 @@ public abstract class ButtonImage extends Button
 	protected void drawClick(double x, double y, int width, int height)
 	{
 		texture.bind();
-		clicked.bind();
+		clClicked.bind();
 		
 		glBegin(GL_QUADS);
 		    glTexCoord2f(0, 0);  //top left
