@@ -2,7 +2,7 @@ package gui.components;
 
 import main.Main;
 import gui.components.button.game.toolbar.ButtonPlane;
-import gui.components.panel.PanelToolbar;
+import gui.components.panel.toolbar.PanelToolbar;
 
 public class Toolbar
 {
