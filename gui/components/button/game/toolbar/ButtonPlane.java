@@ -6,7 +6,7 @@ import main.Main;
 import util.ResourceManager;
 
 public class ButtonPlane extends ButtonImage
-{
+{	
 	public ButtonPlane()
 	{
 		super(ResourceManager.BTN_PLANE);
@@ -15,9 +15,12 @@ public class ButtonPlane extends ButtonImage
 	@Override
 	protected void click()
 	{
-		PanelPlane pnlPlane = Main.instanceManager.gameInstance.guiEngine.pnlPlane;
-		
-		if(pnlPlane.draw) pnlPlane.draw = false;
-		else pnlPlane.draw = true;
+		if(!clicked)
+		{
+			PanelPlane pnlPlane = Main.instanceManager.gameInstance.guiEngine.pnlPlane;
+			
+			if(pnlPlane.draw) pnlPlane.draw = false;
+			else pnlPlane.draw = true;
+		}
 	}
 }
