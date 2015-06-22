@@ -45,9 +45,9 @@ public class Menu
 	private Label lblVersion = new Label(20, Metadata.VERSION);
 	
 	
-	public Menu(ResourceManager resourceManagerInstance)
+	public Menu()
 	{
-		Main.menuTexture = resourceManagerInstance.TERRAIN_MAP;
+		Main.menuTexture = ResourceManager.TERRAIN_MAP;
 	}
 	
 	public void draw()

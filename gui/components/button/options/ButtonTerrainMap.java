@@ -2,6 +2,7 @@ package gui.components.button.options;
 
 import gui.components.button.Button;
 import main.Main;
+import util.ResourceManager;
 
 public class ButtonTerrainMap extends Button 
 {
@@ -13,6 +14,6 @@ public class ButtonTerrainMap extends Button
 	@Override
 	protected void click() 
 	{
-		Main.menuTexture = Main.instanceManager.resourceManagerInstance.TERRAIN_MAP;
+		Main.menuTexture = ResourceManager.TERRAIN_MAP;
 	}
 }

@@ -14,6 +14,8 @@ import main.Main;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
+import util.ResourceManager;
+
 public class PanelToolbar
 {
 	public Texture texture;
@@ -23,7 +25,7 @@ public class PanelToolbar
 	 */
 	public void draw()
 	{	
-		texture = Main.instanceManager.resourceManagerInstance.TOOLBAR;
+		texture = ResourceManager.TOOLBAR;
 		
 		glPushMatrix();
 			glTranslatef(0F, (float)Main.WINDOW_HEIGHT-texture.getTextureHeight(), 0F);

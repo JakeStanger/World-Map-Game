@@ -2,6 +2,7 @@ package gui.components.button.options;
 
 import gui.components.button.Button;
 import main.Main;
+import util.ResourceManager;
 
 public class ButtonWhiteMap extends Button 
 {
@@ -13,6 +14,6 @@ public class ButtonWhiteMap extends Button
 	@Override
 	protected void click() 
 	{
-		Main.menuTexture = Main.instanceManager.resourceManagerInstance.WHITE_MAP;
+		Main.menuTexture = ResourceManager.WHITE_MAP;
 	}
 }
