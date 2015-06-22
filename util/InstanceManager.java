@@ -37,15 +37,15 @@ public class InstanceManager
 	private void load()
 	{
 		//Util instances
+		new ResourceManager();
 		generatorInstance = new Generator();
-		resourceManagerInstance = new ResourceManager();
 		setupInstance = new Setup(generatorInstance);
 		
 		//Main game instances
 		backgroundInstance = new Background();
 		gameInstance = new Game();
 		introInstance = new Intro();
-		menuInstance = new Menu(resourceManagerInstance);
+		menuInstance = new Menu();
 		optionsInstance = new Options();
 	}
 }
