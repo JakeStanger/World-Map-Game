@@ -38,7 +38,7 @@ public abstract class Button extends Component
 	/**
 	 * True if user just clicked. Used to stop button spamming on toggle buttons.
 	 */
-	protected boolean clicked;
+	protected static boolean clicked;
 	
 	/**
 	 * Create a new button
