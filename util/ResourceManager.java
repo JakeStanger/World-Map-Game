@@ -8,12 +8,12 @@ import org.newdawn.slick.util.ResourceLoader;
 
 public class ResourceManager
 {
-	public Texture TERRAIN_MAP;
-	public Texture WHITE_MAP;
+	public static Texture TERRAIN_MAP;
+	public static Texture WHITE_MAP;
 	
-	public Texture TOOLBAR;
+	public static Texture TOOLBAR;
 	
-	public Texture BTN_PLANE;
+	public static Texture BTN_PLANE;
 	
 	public ResourceManager()
 	{
