@@ -30,7 +30,7 @@ public class Intro
 	public Intro()
 	{
 		intro = intro.replace("$STARTCITY$", Game.START_CITY);
-		intro = intro.replace("$STARTCOUNTRTY$", Game.START_COUNTRY);
+		intro = intro.replace("$STARTCOUNTRY$", Game.START_COUNTRY);
 		intro = intro.replace("$ENDCITY$", Game.END_CITY);
 		intro = intro.replace("$ENDCOUNTRY$", Game.END_COUNTRY);
 		
