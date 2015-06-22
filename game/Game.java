@@ -21,10 +21,10 @@ public class Game
 	private boolean paused = false;
 	private int pauseCount;
 	
-	private Generator generator = new Generator();
+	public GuiEngine guiEngine;
 	
+	private Generator generator = new Generator();
 	private Clock clock;
-	private GuiEngine guiEngine;
 	
 	public static String START_COUNTRY, START_CITY, END_COUNTRY, END_CITY; //Blank to avoid null pointer exception
 	
