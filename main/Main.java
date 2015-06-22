@@ -26,6 +26,7 @@ public class Main
 		//Create the display window
 		Display.setDisplayMode(Display.getDesktopDisplayMode());
 		Display.setFullscreen(false);
+		System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
 		Display.setTitle("World Map Game");
 		Display.create();
 		
