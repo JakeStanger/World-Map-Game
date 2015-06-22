@@ -35,6 +35,10 @@ public abstract class Button extends Component
 {
 	private UnicodeFont font;
 	private String text;
+	/**
+	 * True if user just clicked. Used to stop button spamming on toggle buttons.
+	 */
+	protected boolean clicked;
 	
 	/**
 	 * Create a new button
@@ -70,10 +74,19 @@ public abstract class Button extends Component
 				{
 					drawClick(x, y, width, height); //This will very rarely, if at all, be seen.
 					click(); //Actual click event
+					clicked = true;
 				}
-				else drawHover(x, y, width, height); //When the mouse is within the button area
+				else
+				{
+					drawHover(x, y, width, height); //When the mouse is within the button area
+					clicked = false;
+				}
 			}
-			else drawNormal(x, y, width, height); //When the mouse is not within the button area
+			else 
+			{
+				drawNormal(x, y, width, height); //When the mouse is not within the button area
+				clicked = false;
+			}
 			drawFont(0, 0, this.text, Color.white); //Draw the button text
 		glPopMatrix();
 	}
