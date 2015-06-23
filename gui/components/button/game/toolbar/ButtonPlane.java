@@ -18,6 +18,10 @@ public class ButtonPlane extends ButtonImage
 		PanelPlane pnlPlane = Main.instanceManager.gameInstance.guiEngine.pnlPlane;
 			
 		if(pnlPlane.draw) pnlPlane.draw = false;
-		else pnlPlane.draw = true;
+		else
+		{
+			Main.instanceManager.gameInstance.guiEngine.hideAllToolbarPanels(pnlPlane);
+			pnlPlane.draw = true;
+		}
 	}
 }

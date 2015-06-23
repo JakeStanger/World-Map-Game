@@ -19,7 +19,7 @@ import org.newdawn.slick.opengl.Texture;
  * @author Jake
  *
  */
-public class Background
+public class Background //TODO Update to live scrolling background
 {
 	public Texture texture;
 	public boolean draw = false;

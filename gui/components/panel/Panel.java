@@ -9,6 +9,7 @@ import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex2f;
+import gui.Component;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
@@ -18,7 +19,7 @@ import org.newdawn.slick.opengl.Texture;
  * @author Jake
  *
  */
-public class Panel
+public class Panel extends Component
 {
 	private Texture texture;
 	public boolean draw;
