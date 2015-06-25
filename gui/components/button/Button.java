@@ -62,7 +62,8 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	{	
 		Color.white.bind();
 		glPushMatrix();
-			glTranslated(x, y, 0); //Make sure to draw the button at the specified coordinates
+			double[] pos = Main.instanceManager.coordinateManagerInstance.getCoordinatePosition((int) x, (int) y);
+			glTranslated(pos[0], pos[1], 0);
 			
 			//Get mouse coordinates
 			int mouseX = Mouse.getX();

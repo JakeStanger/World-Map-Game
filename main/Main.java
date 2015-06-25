@@ -3,6 +3,7 @@ package main;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
+import util.CoordinateManager;
 import util.InstanceManager;
 
 /**
@@ -34,8 +35,12 @@ public class Main
 		Main.WINDOW_HEIGHT = Display.getHeight();
 		Main.WINDOW_WIDTH = Display.getWidth();
 		
+		//Set ratio vs 1920x1080 coordinate grid
+		CoordinateManager.X_RATIO = (double) Main.WINDOW_WIDTH / (double) CoordinateManager.MAX_X;
+		CoordinateManager.Y_RATIO = (double) Main.WINDOW_HEIGHT/ (double) CoordinateManager.MAX_Y;
+		
 		//Create non-window related setup instances
 		Main.instanceManager = new InstanceManager();
-		Main.gameLoop = new GameLoop();
+		Main.gameLoop = new GameLoop(); //End of setup
 	}
 }

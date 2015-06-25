@@ -28,6 +28,7 @@ public class InstanceManager
 	public Generator generatorInstance;
 	public ResourceManager resourceManagerInstance;
 	public Setup setupInstance;
+	public CoordinateManager coordinateManagerInstance;
 	
 	public InstanceManager()
 	{	
@@ -40,6 +41,7 @@ public class InstanceManager
 		new ResourceManager();
 		generatorInstance = new Generator();
 		setupInstance = new Setup(generatorInstance);
+		coordinateManagerInstance = new CoordinateManager();
 		
 		//Main game instances
 		backgroundInstance = new Background();
