@@ -34,7 +34,7 @@ public class GuiEngine
 		toolbar.draw();
 		
 		if(pnlPlane.draw) pnlPlane.draw(20, Main.WINDOW_HEIGHT-64-512);
-		if(pnlBoat.draw) pnlBoat.draw(120, Main.WINDOW_HEIGHT-64-512);
+		if(pnlBoat.draw) pnlBoat.draw(100, Main.WINDOW_HEIGHT-64-512);
 		
 		toolbarPanels.add(pnlPlane);
 		toolbarPanels.add(pnlBoat);
