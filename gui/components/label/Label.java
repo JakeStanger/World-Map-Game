@@ -3,10 +3,13 @@ package gui.components.label;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.glDisable;
 import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glTranslated;
 import gui.Component;
 
 import java.awt.Font;
 import java.io.InputStream;
+
+import main.Main;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
@@ -77,7 +80,8 @@ public class Label extends Component
 	private void drawFont(int x, int y, String text, Color colour)
 	{
 		glEnable(GL_TEXTURE_2D);
-			font.drawString(x, y, text, colour);
+		double[] pos = Main.instanceManager.coordinateManagerInstance.getCoordinatePosition((int) x, (int) y);
+			font.drawString((float) pos[0], (float) pos[1], text, colour);
 		glDisable(GL_TEXTURE_2D);
 	}
 	
