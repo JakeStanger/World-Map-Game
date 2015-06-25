@@ -15,13 +15,13 @@ public class ButtonBoat extends ButtonImage
 	@Override
 	protected void click()
 	{
-		PanelBoat pnlBoat = Main.instanceManager.gameInstance.guiEngine.pnlBoat;
+		PanelBoat pnl = Main.instanceManager.gameInstance.guiEngine.pnlBoat;
 			
-		if(pnlBoat.draw) pnlBoat.draw = false;
+		if(pnl.draw) pnl.draw = false;
 		else
 		{
-			Main.instanceManager.gameInstance.guiEngine.hideAllToolbarPanels(pnlBoat);
-			pnlBoat.draw = true;
+			Main.instanceManager.gameInstance.guiEngine.hideAllToolbarPanels(pnl);
+			pnl.draw = true;
 		}
 	}
 }
