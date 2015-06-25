@@ -28,7 +28,7 @@ public class ResourceManager
 			PANEL = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/Panel.png"));
 			
 			BTN_PLANE = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Plane.png"));
-			BTN_BOAT = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Plane.png"));
+			BTN_BOAT = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Ship.png"));
 		}
 		catch(IOException e)
 		{
