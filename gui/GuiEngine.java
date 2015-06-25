@@ -3,6 +3,7 @@ package gui;
 import gui.components.Toolbar;
 import gui.components.panel.Panel;
 import gui.components.panel.toolbar.PanelBoat;
+import gui.components.panel.toolbar.PanelBus;
 import gui.components.panel.toolbar.PanelPlane;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class GuiEngine
 	
 	public PanelPlane pnlPlane;
 	public PanelBoat pnlBoat;
+	public PanelBus pnlBus;
 	
 	private List<Panel> toolbarPanels;
 	
@@ -25,6 +27,7 @@ public class GuiEngine
 		
 		this.pnlPlane = new PanelPlane();
 		this.pnlBoat = new PanelBoat();
+		this.pnlBus = new PanelBus();
 		
 		this.toolbarPanels = new ArrayList<Panel>();
 	}
@@ -35,9 +38,11 @@ public class GuiEngine
 		
 		if(pnlPlane.draw) pnlPlane.draw(20, Main.WINDOW_HEIGHT-64-512);
 		if(pnlBoat.draw) pnlBoat.draw(100, Main.WINDOW_HEIGHT-64-512);
+		if(pnlBus.draw) pnlBus.draw(180, Main.WINDOW_HEIGHT-64-512);
 		
 		toolbarPanels.add(pnlPlane);
 		toolbarPanels.add(pnlBoat);
+		toolbarPanels.add(pnlBus);
 	}
 	
 	/**

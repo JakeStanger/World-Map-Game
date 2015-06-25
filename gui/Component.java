@@ -5,7 +5,7 @@ package gui;
  * @author Jake
  *
  */
-public abstract class Component
+public abstract class Component //TODO Write add() method TODO make placement work on screen percentages
 {
 	
 }
