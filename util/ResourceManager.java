@@ -16,6 +16,7 @@ public class ResourceManager
 	
 	public static Texture BTN_PLANE;
 	public static Texture BTN_BOAT;
+	public static Texture BTN_BUS;
 	
 	public ResourceManager()
 	{
@@ -29,6 +30,7 @@ public class ResourceManager
 			
 			BTN_PLANE = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Plane.png"));
 			BTN_BOAT = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Ship.png"));
+			BTN_BUS = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("assets/textures/gui/buttons/Bus.png"));
 		}
 		catch(IOException e)
 		{
