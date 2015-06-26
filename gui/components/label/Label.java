@@ -27,16 +27,16 @@ public class Label extends Component
 {
 	private UnicodeFont font;
 	private String text;
-	public int size;
+	public double size;
 	
 	public Label(int size, String text) 
 	{
 		createFont(size, true, false); //Create font to draw with
 		this.text = text;
-		this.size = size*(int)CoordinateManager.X_RATIO;
+		this.size = size*CoordinateManager.X_RATIO;
 	}
 	
-	public void draw(int x, int y, Color colour)
+	public void draw(double x, double y, Color colour)
 	{
 		drawFont(x, y, this.text, colour);
 	}
@@ -54,7 +54,7 @@ public class Label extends Component
 	        InputStream inputStream = ResourceLoader.getResourceAsStream("assets/fonts/handwriting_draft.ttf");
 	         
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-	        font = new UnicodeFont(awtFont, size, isBold, isItalic);
+	        font = new UnicodeFont(awtFont, (int) (size*CoordinateManager.Y_RATIO), isBold, isItalic);
 	             
 	    }
 		catch (Exception e) 
@@ -78,7 +78,7 @@ public class Label extends Component
 		return font;
 	}
 	
-	private void drawFont(int x, int y, String text, Color colour)
+	private void drawFont(double x, double y, String text, Color colour)
 	{
 		glEnable(GL_TEXTURE_2D);
 		double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);

@@ -26,6 +26,8 @@ import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
 
+import util.CoordinateManager;
+
 /**
  * A clickable menu button
  * @author Jake
@@ -58,13 +60,17 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the button width
 	 * @param height the button height
 	 */
-	public void draw(double x, double y, int width, int height)
+	public void draw(double x, double y, double width, double height)
 	{	
 		Color.white.bind();
 		glPushMatrix();
 			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
 			x = pos[0];
 			y = pos[1];
+			
+			pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(width, height);
+			width = pos[0];
+			height = pos[1];
 			
 			glTranslated(x, y, 0);
 			
@@ -104,7 +110,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	protected void drawNormal(int width, int height)
+	protected void drawNormal(double width, double height)
 	{
 		glBegin(GL_QUADS);
 			glColor4d(0.6, 0.6, 0.6, 0.8);
@@ -122,7 +128,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	protected void drawHover(int width, int height)
+	protected void drawHover(double width, double height)
 	{
 		glBegin(GL_QUADS);
 			glColor3d(0.7, 0.7, 0.7);
@@ -140,7 +146,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	protected void drawClick(int width, int height)
+	protected void drawClick(double width, double height)
 	{
 		glBegin(GL_QUADS);
 			glColor3d(0.75, 0.75, 0.75);
@@ -164,7 +170,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	        InputStream inputStream = ResourceLoader.getResourceAsStream("assets/fonts/handwriting_draft.ttf");
 	         
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-	        font = new UnicodeFont(awtFont, size, isBold, isItalic);
+	        font = new UnicodeFont(awtFont, (int) (size*CoordinateManager.Y_RATIO), isBold, isItalic);
 	             
 	    }
 		catch (Exception e) 
