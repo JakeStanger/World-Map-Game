@@ -13,7 +13,7 @@ public class CoordinateManager
 	 * @param y the y coordinate
 	 * @return an array containing the actual x and y
 	 */
-	public double[] getActualPostion(double x, double y)
+	public double[] getActualPosition(double x, double y)
 	{
 		double[] pos = new double[2];
 		
