@@ -22,7 +22,6 @@ public class Main
 	//Set virtual resolution for scaling up/down on different resolutions
 	public static final int VIRTUAL_WINDOW_WIDTH = 1920;
 	public static final int VIRTUAL_WINDOW_HEIGHT = 1080;
-	public static final float TARGET_ASPECT_RATIO = VIRTUAL_WINDOW_WIDTH/VIRTUAL_WINDOW_HEIGHT;
 	
 	public static Texture menuTexture;
 	
@@ -31,8 +30,9 @@ public class Main
 		//Create the display window
 		Display.setDisplayMode(Display.getDesktopDisplayMode());
 		Display.setFullscreen(false);
-		System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
+		//System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
 		Display.setTitle("World Map Game");
+		Display.setResizable(true);
 		Display.create();
 		
 		//Get screen size

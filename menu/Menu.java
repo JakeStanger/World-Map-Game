@@ -60,6 +60,6 @@ public class Menu
 		btnQuit.draw(20, BUTTON_HEIGHT*3 + 80, BUTTON_LENGTH, BUTTON_HEIGHT);
 		
 		//Draw other things
-		lblVersion.draw(10, Main.WINDOW_HEIGHT - 30, Color.black);
+		lblVersion.draw(10, 1050, Color.black);
 	}
 }

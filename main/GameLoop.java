@@ -2,6 +2,7 @@ package main;
 
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
 import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
 import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.GL_PROJECTION;
@@ -17,7 +18,6 @@ import static org.lwjgl.opengl.GL11.glOrtho;
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glScalef;
-import static org.lwjgl.opengl.GL11.glViewport;
 import game.Game;
 import game.Intro;
 import menu.Background;
@@ -93,27 +93,15 @@ public class GameLoop
 	 * Initial game setup to make sure everything is drawn with the correct orientation
 	 * Also enables necessary OpenGL functions
 	 */
-	private void setupOpenGL()
+	private void setupOpenGL() //TODO Fiddle the values until they work
 	{
 		//Clear the previous frame
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f); 
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
 		
-		//Calculate scaling values
-		int width = Main.WINDOW_WIDTH;
-		int height = (int)(width / Main.TARGET_ASPECT_RATIO + 0.5f);
-		
-		if (height > Main.WINDOW_HEIGHT) //If the target height does not fit
-		{
-		    height = Main.WINDOW_HEIGHT;
-		    width = (int)(height * Main.TARGET_ASPECT_RATIO + 0.5f);
-		}
-		 
-		//Set up the new viewport centred in the backbuffer
-		int vp_x = (Main.WINDOW_WIDTH  / 2) - (width / 2);
-		int vp_y = (Main.WINDOW_HEIGHT / 2) - (height/ 2);
-		 
-		//glViewport(vp_x,vp_y,width,height);
+		//Update public widths and heights
+		Main.WINDOW_WIDTH = Display.getWidth();
+		Main.WINDOW_HEIGHT = Display.getHeight();
 		
 		//Modify projection matrix
 		glMatrixMode(GL_PROJECTION);
