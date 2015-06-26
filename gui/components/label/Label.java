@@ -3,7 +3,6 @@ package gui.components.label;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.glDisable;
 import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glTranslated;
 import gui.Component;
 
 import java.awt.Font;
