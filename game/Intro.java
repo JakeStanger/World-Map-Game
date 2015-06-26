@@ -6,6 +6,8 @@ import main.Main;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 
+import util.CoordinateManager;
+
 /**
  * Handles the introduction upon starting a new game
  * @author Jake
@@ -61,7 +63,7 @@ public class Intro
 			lblEndCity.draw(10, 280, Color.green);
 		}
 		
-		if(lblEndCity.hasFinished) lblClickToStart.draw((Main.WINDOW_WIDTH/2)-(lblClickToStart.getText().length()*lblClickToStart.size)/2, Main.WINDOW_HEIGHT - 100, Color.green);
+		if(lblEndCity.hasFinished) lblClickToStart.draw((CoordinateManager.MAX_X/2)-(lblClickToStart.getText().length()*lblClickToStart.size)/2, CoordinateManager.MAX_Y - 100, Color.green);
 		if(lblClickToStart.hasFinished && Mouse.isButtonDown(0)) //When the player has seen the intro and clicked
 		{
 			this.draw = false;

@@ -10,6 +10,7 @@ import main.Main;
 
 import org.newdawn.slick.Color;
 
+import util.CoordinateManager;
 import util.Metadata;
 import util.ResourceManager;
 
@@ -52,7 +53,7 @@ public class Menu
 	
 	public void draw()
 	{	
-		//Draw the menu buttons
+		//Draw the menu buttons TODO Convert to coordinate system?
 		Color.white.bind();
 		btnNewGame.draw(20, 20, BUTTON_LENGTH, BUTTON_HEIGHT);
 		btnLoadGame.draw(20, BUTTON_HEIGHT + 40, BUTTON_LENGTH, BUTTON_HEIGHT);
@@ -60,6 +61,6 @@ public class Menu
 		btnQuit.draw(20, BUTTON_HEIGHT*3 + 80, BUTTON_LENGTH, BUTTON_HEIGHT);
 		
 		//Draw other things
-		lblVersion.draw(10, Main.WINDOW_HEIGHT - 30, Color.black);
+		lblVersion.draw(10, CoordinateManager.MAX_Y - 30, Color.black);
 	}
 }
