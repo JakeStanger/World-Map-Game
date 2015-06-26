@@ -62,8 +62,11 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	{	
 		Color.white.bind();
 		glPushMatrix();
-			double[] pos = Main.instanceManager.coordinateManagerInstance.getCoordinatePosition((int) x, (int) y);
-			glTranslated(pos[0], pos[1], 0);
+			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
+			x = pos[0];
+			y = pos[1];
+			
+			glTranslated(x, y, 0);
 			
 			//Get mouse coordinates
 			int mouseX = Mouse.getX();
@@ -74,18 +77,18 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 			{
 				if(Mouse.isButtonDown(0) && !clicked) //If the button has been clicked
 				{
-					drawClick(x, y, width, height); //This will very rarely, if at all, be seen.
+					drawClick(width, height); //This will very rarely, if at all, be seen.
 					click(); //Actual click event
 					clicked = true;
 				}
 				else
 				{
-					drawHover(x, y, width, height); //When the mouse is within the button area
+					drawHover(width, height); //When the mouse is within the button area
 				}
 			}
 			else 
 			{
-				drawNormal(x, y, width, height); //When the mouse is not within the button area
+				drawNormal(width, height); //When the mouse is not within the button area
 			}
 			
 			if(!Mouse.isButtonDown(0)) clicked = false; //Only reset clicked once the mouse button is released
@@ -101,7 +104,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	protected void drawNormal(double x, double y, int width, int height)
+	protected void drawNormal(int width, int height)
 	{
 		glBegin(GL_QUADS);
 			glColor4d(0.6, 0.6, 0.6, 0.8);
@@ -119,7 +122,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	protected void drawHover(double x, double y, int width, int height)
+	protected void drawHover(int width, int height)
 	{
 		glBegin(GL_QUADS);
 			glColor3d(0.7, 0.7, 0.7);
@@ -137,7 +140,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	 * @param width the width of the button
 	 * @param height the height of the button
 	 */
-	protected void drawClick(double x, double y, int width, int height)
+	protected void drawClick(int width, int height)
 	{
 		glBegin(GL_QUADS);
 			glColor3d(0.75, 0.75, 0.75);
