@@ -53,7 +53,7 @@ public class Menu
 	
 	public void draw()
 	{	
-		//Draw the menu buttons TODO Convert to coordinate system?
+		//Draw the menu buttons
 		Color.white.bind();
 		btnNewGame.draw(20, 20, BUTTON_LENGTH, BUTTON_HEIGHT);
 		btnLoadGame.draw(20, BUTTON_HEIGHT + 40, BUTTON_LENGTH, BUTTON_HEIGHT);
