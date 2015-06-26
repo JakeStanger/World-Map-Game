@@ -26,7 +26,7 @@ public abstract class ButtonImage extends Button
 	protected abstract void click();
 	
 	@Override
-	protected void drawNormal(double x, double y, int width, int height)
+	protected void drawNormal(int width, int height)
 	{	
 		texture.bind();
 		Color.white.bind();
