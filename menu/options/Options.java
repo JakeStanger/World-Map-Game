@@ -7,10 +7,11 @@ import gui.components.button.options.ButtonWhiteMap;
 import gui.components.button.options.game.ButtonQuitToMenu;
 import gui.components.button.options.menu.ButtonMenuReturn;
 import gui.components.label.Label;
-import main.Main;
 
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
+
+import util.CoordinateManager;
 
 
 public class Options 
@@ -73,16 +74,16 @@ public class Options
 		GL11.glBegin(GL11.GL_QUADS);
 			GL11.glColor4f(0, 0, 0, 0.7F);
 			GL11.glVertex2f(0,0);
-		    GL11.glVertex2f(Main.WINDOW_WIDTH,0);
-		    GL11.glVertex2f(Main.WINDOW_WIDTH,Main.WINDOW_HEIGHT);
-		    GL11.glVertex2f(0,Main.WINDOW_HEIGHT);
+		    GL11.glVertex2f(CoordinateManager.MAX_X,0);
+		    GL11.glVertex2f(CoordinateManager.MAX_X,CoordinateManager.MAX_Y);
+		    GL11.glVertex2f(0,CoordinateManager.MAX_Y);
 	    GL11.glEnd();
 	
 	    Color.white.bind(); //Reset colour settings (may not be needed)
-	    lblPaused.draw((Main.WINDOW_WIDTH-lblPaused.getLength()*lblPaused.size)-5, Main.WINDOW_HEIGHT-75, Color.white);
+	    lblPaused.draw((CoordinateManager.MAX_X-lblPaused.getLength()*lblPaused.size)-10, CoordinateManager.MAX_Y-50, Color.white);
 	    
-	    btnQuitToMenu.draw(20, Main.WINDOW_HEIGHT-(BUTTON_HEIGHT*2)-70, BUTTON_LENGTH, BUTTON_HEIGHT);
-	    btnQuit.draw(20, Main.WINDOW_HEIGHT-(BUTTON_HEIGHT)-50, BUTTON_LENGTH, BUTTON_HEIGHT);
+	    btnQuitToMenu.draw(20, CoordinateManager.MAX_Y-(BUTTON_HEIGHT*2)-70, BUTTON_LENGTH, BUTTON_HEIGHT);
+	    btnQuit.draw(20, CoordinateManager.MAX_Y-(BUTTON_HEIGHT)-50, BUTTON_LENGTH, BUTTON_HEIGHT);
 	    
 	}
 }
