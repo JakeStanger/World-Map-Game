@@ -33,7 +33,7 @@ public class Panel extends Component
 	/**
 	 * Draw the toolbar at the bottom of the screen.
 	 */
-	public void draw(float x, float y)
+	public void draw(double x, double y)
 	{
 		glPushMatrix();
 			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
