@@ -36,7 +36,7 @@ public class Panel extends Component
 	public void draw(float x, float y)
 	{
 		glPushMatrix();
-			double[] pos = Main.instanceManager.coordinateManagerInstance.getCoordinatePosition((int) x, (int) y);
+			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
 			glTranslated(pos[0], pos[1], 0);
 			
 			if(texture != null) texture.bind();

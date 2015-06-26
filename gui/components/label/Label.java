@@ -16,6 +16,8 @@ import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
 
+import util.CoordinateManager;
+
 /**
  * A simple text label with a transparent background
  * @author Jake
@@ -31,7 +33,7 @@ public class Label extends Component
 	{
 		createFont(size, true, false); //Create font to draw with
 		this.text = text;
-		this.size = size;
+		this.size = size*(int)CoordinateManager.X_RATIO;
 	}
 	
 	public void draw(int x, int y, Color colour)
@@ -79,7 +81,7 @@ public class Label extends Component
 	private void drawFont(int x, int y, String text, Color colour)
 	{
 		glEnable(GL_TEXTURE_2D);
-		double[] pos = Main.instanceManager.coordinateManagerInstance.getCoordinatePosition((int) x, (int) y);
+		double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
 			font.drawString((float) pos[0], (float) pos[1], text, colour);
 		glDisable(GL_TEXTURE_2D);
 	}
