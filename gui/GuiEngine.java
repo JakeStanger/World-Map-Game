@@ -9,7 +9,7 @@ import gui.components.panel.toolbar.PanelPlane;
 import java.util.ArrayList;
 import java.util.List;
 
-import util.CoordinateManager;
+import main.Main;
 
 public class GuiEngine
 {
@@ -36,9 +36,9 @@ public class GuiEngine
 	{
 		toolbar.draw();
 		
-		if(pnlPlane.draw) pnlPlane.draw(20, CoordinateManager.MAX_Y-64-512);
-		if(pnlBoat.draw) pnlBoat.draw(100, CoordinateManager.MAX_Y-64-512);
-		if(pnlBus.draw) pnlBus.draw(180, CoordinateManager.MAX_Y-64-512);
+		if(pnlPlane.draw) pnlPlane.draw(20, Main.WINDOW_HEIGHT-64-512);
+		if(pnlBoat.draw) pnlBoat.draw(100, Main.WINDOW_HEIGHT-64-512);
+		if(pnlBus.draw) pnlBus.draw(180, Main.WINDOW_HEIGHT-64-512);
 		
 		toolbarPanels.add(pnlPlane);
 		toolbarPanels.add(pnlBoat);

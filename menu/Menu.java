@@ -10,7 +10,6 @@ import main.Main;
 
 import org.newdawn.slick.Color;
 
-import util.CoordinateManager;
 import util.Metadata;
 import util.ResourceManager;
 
@@ -61,6 +60,6 @@ public class Menu
 		btnQuit.draw(20, BUTTON_HEIGHT*3 + 80, BUTTON_LENGTH, BUTTON_HEIGHT);
 		
 		//Draw other things
-		lblVersion.draw(10, CoordinateManager.MAX_Y - 30, Color.black);
+		lblVersion.draw(10, Main.WINDOW_HEIGHT - 30, Color.black);
 	}
 }

@@ -26,8 +26,6 @@ import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
 
-import util.CoordinateManager;
-
 /**
  * A clickable menu button
  * @author Jake
@@ -64,14 +62,6 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	{	
 		Color.white.bind();
 		glPushMatrix();
-			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
-			x = pos[0];
-			y = pos[1];
-			
-			pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(width, height);
-			width = pos[0];
-			height = pos[1];
-			
 			glTranslated(x, y, 0);
 			
 			//Get mouse coordinates
@@ -87,19 +77,15 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 					click(); //Actual click event
 					clicked = true;
 				}
-				else
-				{
-					drawHover(width, height); //When the mouse is within the button area
-				}
+				else drawHover(width, height); //When the mouse is within the button area
 			}
-			else 
-			{
-				drawNormal(width, height); //When the mouse is not within the button area
-			}
+			else drawNormal(width, height); //When the mouse is not within the button area
 			
 			if(!Mouse.isButtonDown(0)) clicked = false; //Only reset clicked once the mouse button is released
 			
 			drawFont(0, 0, this.text, Color.white); //Draw the button text
+			
+			//System.out.println(x + ", " + y);
 		glPopMatrix();
 	}
 	
@@ -170,7 +156,7 @@ public abstract class Button extends Component //TODO Fix strange render issues 
 	        InputStream inputStream = ResourceLoader.getResourceAsStream("assets/fonts/handwriting_draft.ttf");
 	         
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-	        font = new UnicodeFont(awtFont, (int) (size*CoordinateManager.Y_RATIO), isBold, isItalic);
+	        font = new UnicodeFont(awtFont, size, isBold, isItalic);
 	             
 	    }
 		catch (Exception e) 

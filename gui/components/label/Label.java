@@ -8,15 +8,11 @@ import gui.Component;
 import java.awt.Font;
 import java.io.InputStream;
 
-import main.Main;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
-
-import util.CoordinateManager;
 
 /**
  * A simple text label with a transparent background
@@ -33,10 +29,10 @@ public class Label extends Component
 	{
 		createFont(size, true, false); //Create font to draw with
 		this.text = text;
-		this.size = size*CoordinateManager.X_RATIO;
+		this.size = size;
 	}
 	
-	public void draw(double x, double y, Color colour)
+	public void draw(float x, float y, Color colour)
 	{
 		drawFont(x, y, this.text, colour);
 	}
@@ -54,7 +50,7 @@ public class Label extends Component
 	        InputStream inputStream = ResourceLoader.getResourceAsStream("assets/fonts/handwriting_draft.ttf");
 	         
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-	        font = new UnicodeFont(awtFont, (int) (size*CoordinateManager.Y_RATIO), isBold, isItalic);
+	        font = new UnicodeFont(awtFont, size, isBold, isItalic);
 	             
 	    }
 		catch (Exception e) 
@@ -67,6 +63,7 @@ public class Label extends Component
 		ColorEffect colour = new ColorEffect();
 		colour.setColor(java.awt.Color.white);
 		font.getEffects().add(colour);
+		
 		try 
 		{
 		    font.loadGlyphs();
@@ -75,14 +72,14 @@ public class Label extends Component
 		{
 		    e1.printStackTrace();
 		}
+		
 		return font;
 	}
 	
-	private void drawFont(double x, double y, String text, Color colour)
+	private void drawFont(float x, float y, String text, Color colour)
 	{
 		glEnable(GL_TEXTURE_2D);
-		double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
-			font.drawString((float) pos[0], (float) pos[1], text, colour);
+			font.drawString(x, y, text, colour);
 		glDisable(GL_TEXTURE_2D);
 	}
 	

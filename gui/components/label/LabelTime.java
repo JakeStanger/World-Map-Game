@@ -15,8 +15,6 @@ import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.util.ResourceLoader;
 
-import util.CoordinateManager;
-
 public class LabelTime
 {
 	private UnicodeFont font;
@@ -78,8 +76,7 @@ public class LabelTime
 		String text = month + ", " + day + dayEnd + " " + hour + ":" + minuteStr + ":" + secondStr;
 		
 		glEnable(GL_TEXTURE_2D);
-			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(CoordinateManager.MAX_X - 455, 10);
-			font.drawString((float) pos[0], (float) pos[1], text, Color.green);
+			font.drawString(Main.WINDOW_WIDTH - 455, 10, text, Color.green);
 		glDisable(GL_TEXTURE_2D);
 	}
 }

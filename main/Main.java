@@ -3,7 +3,6 @@ package main;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
-import util.CoordinateManager;
 import util.InstanceManager;
 
 /**
@@ -18,7 +17,12 @@ public class Main
 	public static InstanceManager instanceManager;
 	public static GameLoop gameLoop;
 	
-	public static int WINDOW_HEIGHT, WINDOW_WIDTH;
+	public static int WINDOW_WIDTH, WINDOW_HEIGHT;
+	
+	//Set virtual resolution for scaling up/down on different resolutions
+	public static final int VIRTUAL_WINDOW_WIDTH = 1920;
+	public static final int VIRTUAL_WINDOW_HEIGHT = 1080;
+	public static final float TARGET_ASPECT_RATIO = VIRTUAL_WINDOW_WIDTH/VIRTUAL_WINDOW_HEIGHT;
 	
 	public static Texture menuTexture;
 	
@@ -34,10 +38,6 @@ public class Main
 		//Get screen size
 		Main.WINDOW_HEIGHT = Display.getHeight();
 		Main.WINDOW_WIDTH = Display.getWidth();
-		
-		//Set ratio vs 1920x1080 coordinate grid
-		CoordinateManager.X_RATIO = (double) Main.WINDOW_WIDTH / (double) CoordinateManager.MAX_X;
-		CoordinateManager.Y_RATIO = (double) Main.WINDOW_HEIGHT/ (double) CoordinateManager.MAX_Y;
 		
 		//Create non-window related setup instances
 		Main.instanceManager = new InstanceManager();

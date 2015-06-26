@@ -10,7 +10,6 @@ import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glTranslated;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 import gui.Component;
-import main.Main;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
@@ -36,8 +35,7 @@ public class Panel extends Component
 	public void draw(double x, double y)
 	{
 		glPushMatrix();
-			double[] pos = Main.instanceManager.coordinateManagerInstance.getActualPosition(x, y);
-			glTranslated(pos[0], pos[1], 0);
+			glTranslated(x, y, 0);
 			
 			if(texture != null) texture.bind();
 			Color.lightGray.bind();
