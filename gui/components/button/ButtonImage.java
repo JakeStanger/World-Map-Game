@@ -26,7 +26,7 @@ public abstract class ButtonImage extends Button
 	protected abstract void click();
 	
 	@Override
-	protected void drawNormal(int width, int height)
+	protected void drawNormal(double width, double height)
 	{	
 		texture.bind();
 		Color.white.bind();
@@ -46,7 +46,8 @@ public abstract class ButtonImage extends Button
 	    glEnd();
 	}
 	
-	protected void drawHover(double x, double y, int width, int height)
+	@Override
+	protected void drawHover(double width, double height)
 	{
 		texture.bind();
 		clHover.bind();
@@ -66,7 +67,8 @@ public abstract class ButtonImage extends Button
 	    glEnd();
 	}
 	
-	protected void drawClick(double x, double y, int width, int height)
+	@Override
+	protected void drawClick(double width, double height)
 	{
 		texture.bind();
 		clClicked.bind();
